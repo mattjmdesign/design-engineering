@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shell A</title>
+<!-- Page A of the routes fixture: the shell (sticky header, 240px rail, footer, centered 960px column, 28px title) that B shares and C breaks. Capture A and B at 1280 and 390: routes must report nothing. -->
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ffffff; color: #1b1f24; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .topbar { position: sticky; top: 0; z-index: 2; display: flex; align-items: center; gap: 16px; height: 56px; padding: 0 24px; background: #ffffff; border-bottom: 1px solid #d0d7de; }
+  .brand { font-size: 16px; font-weight: 700; }
+  .topbar a { color: #0b5fff; font-size: 14px; }
+  .frame { display: flex; min-height: calc(100vh - 56px); }
+  .rail { flex: none; width: 240px; padding: 16px 12px; background: #f6f8fa; border-right: 1px solid #d0d7de; }
+  .rail ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+  .rail a { display: flex; align-items: center; height: 36px; padding: 0 12px; border-radius: 6px; color: #1b1f24; font-size: 14px; text-decoration: none; }
+  .rail a[aria-current] { background: #e6ebf1; font-weight: 600; }
+  .stage { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  main { flex: 1; }
+  .col { max-width: 960px; margin: 0 auto; padding: 24px; }
+  h1 { margin: 0 0 16px; font-size: 28px; line-height: 1.25; font-weight: 600; }
+  h2 { margin: 24px 0 8px; font-size: 20px; line-height: 1.25; font-weight: 600; }
+  p { margin: 0 0 16px; }
+  .col ul { margin: 0 0 16px; padding: 0; list-style: none; }
+  .foot { padding: 16px 24px; background: #f6f8fa; border-top: 1px solid #d0d7de; font-size: 14px; color: #57606a; }
+  @media (max-width: 640px) {
+    .frame { flex-direction: column; }
+    .rail { width: auto; padding: 8px 12px; border-right: 0; border-bottom: 1px solid #d0d7de; }
+    .rail ul { flex-direction: row; }
+    .col { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+<header class="topbar"><span class="brand">Spec Library</span><a href="#help">Help</a></header>
+<div class="frame">
+  <nav class="rail" aria-label="Primary">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#specs" aria-current="page">Specs</a></li>
+      <li><a href="#inbox">Inbox</a></li>
+      <li><a href="#sync">Sync</a></li>
+      <li><a href="#usage">Usage</a></li>
+    </ul>
+  </nav>
+  <div class="stage">
+    <main>
+      <div class="col">
+        <h1>Projects</h1>
+        <p>Every spec keeps its history, owners, and open questions in one place, so a reviewer can decide without chasing context across several tools.</p>
+        <h2>Open specs</h2>
+        <p>Twelve specs are waiting for review. The oldest has been open for nine days and needs an owner.</p>
+      </div>
+    </main>
+      <footer class="foot"><p style="margin:0">Spec Library keeps specs reviewable.</p></footer>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+interface:
+  display_name: "UI layout"
+  short_description: "Plan grids, shells, widths, and responsive behavior"
+  brand_color: "#B45309"
+  default_prompt: "Use $ui-layout to plan this interface's regions, grid, width caps, and responsive behavior."
+
+policy:
+  allow_implicit_invocation: true

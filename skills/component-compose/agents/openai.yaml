@@ -1,0 +1,8 @@
+interface:
+  display_name: "Component compose"
+  short_description: "Reuse UI primitives before creating components"
+  brand_color: "#B45309"
+  default_prompt: "Use $component-compose to inventory and reuse this repo's UI primitives before building."
+
+policy:
+  allow_implicit_invocation: true

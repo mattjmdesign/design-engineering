@@ -1,0 +1,57 @@
+{
+  "skill_name": "ui-variants",
+  "evals": [
+    {
+      "id": "component-fan-out",
+      "prompt": "Show me three options for the specs-created metric card on /usage. The app is a Vite and React repo with shadcn components and is running locally.",
+      "assertions": [
+        "States the piece, axis, count, and cost before building",
+        "Runs the inventory brief, init, and a baseline capture before any variant code",
+        "Writes variants.json with one axis and three positions whose theses name different measurable facts, and varies neither type nor color",
+        "Builds the harness (fixture with default, empty, and long data, copy deck, states.json, picker, host, one guarded mount line) before workers start",
+        "Sends three Agent-tool calls in one message, each a self-contained brief with absolute script paths, one owned file, and the other positions as must-differ without their paths",
+        "Gates every variant on zero FAIL, zero P1, slop checks, three confirmed states, and distinctness, with evidence ids",
+        "Presents the picker URL and keys and a table with position, right when, costs, counts, reused against created, distinctness, and evidence, and marks no favorite"
+      ]
+    },
+    {
+      "id": "region-skeletons-first",
+      "prompt": "Give me alternatives for the content area of the conflicts page. Keep the existing shell.",
+      "assertions": [
+        "Scopes the run to the content region inside the existing shell, not a new shell",
+        "Takes structure positions from the ui-layout template alternatives",
+        "Builds three skeleton structures without agents in round one and reads them with xray",
+        "Waits for the owner to pick a structure before any fan-out, and gives round two a different axis"
+      ]
+    },
+    {
+      "id": "promote-and-clean",
+      "prompt": "Go with the Ledger variant of the metric card.",
+      "assertions": [
+        "Rebuilds Ledger in the real component on real data instead of copying the variant file",
+        "Moves proposed primitive variants into ui/ and runs the composition audit on the changed files",
+        "Runs design-system Adopt on the new values and compares the final run with the baseline",
+        "Removes the mount line and deletes the harness folder",
+        "Proves zero leftovers with searches for __variant, __variants__, and the variant names, and a clean git status"
+      ]
+    },
+    {
+      "id": "fonts-and-colors-ask",
+      "prompt": "Make three versions of the page header with different fonts and color schemes so we can pick a look.",
+      "assertions": [
+        "Explains that type and color are system decisions, not variant axes",
+        "Offers design-system for a type or color change, or proposes a real axis such as Structure or Emphasis",
+        "Does not build three tints of the same structure"
+      ]
+    },
+    {
+      "id": "sequential-fallback",
+      "prompt": "Build variants of the filter bar one at a time; do not use subagents.",
+      "assertions": [
+        "Builds the variants in sequence in the same harness",
+        "Passes each earlier variant's measured facts to the next as must-differ",
+        "Applies the same gate and distinctness check as a parallel run"
+      ]
+    }
+  ]
+}

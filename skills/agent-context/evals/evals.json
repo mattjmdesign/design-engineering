@@ -1,0 +1,41 @@
+{
+  "skill_name": "agent-context",
+  "evals": [
+    {
+      "id": "next-app-context",
+      "prompt": "Create an AGENTS.md for our Next.js app with Tailwind, shadcn, strict TypeScript, and Playwright.",
+      "assertions": [
+        "Includes commands section",
+        "Includes server/client or architecture rules",
+        "Includes design-token/styling rules",
+        "Includes testing validation"
+      ]
+    },
+    {
+      "id": "existing-repo-improve",
+      "prompt": "Our agents keep hardcoding styles and changing too many files. Improve our repo instructions.",
+      "assertions": [
+        "Addresses hardcoded styles",
+        "Addresses edit scope",
+        "Includes validation before completion"
+      ]
+    },
+    {
+      "id": "unknown-commands",
+      "prompt": "Draft a CLAUDE.md for this repo. I have not told you the commands yet.",
+      "assertions": [
+        "Does not invent unsupported commands as facts",
+        "Includes assumptions or questions",
+        "Still provides usable structure"
+      ]
+    },
+    {
+      "id": "no-generic-filler",
+      "prompt": "Write an AGENTS.md for a Next.js dashboard repo (we use pnpm and Vitest).",
+      "assertions": [
+        "Names concrete commands and folders",
+        "Does not fill the file with generic advice"
+      ]
+    }
+  ]
+}

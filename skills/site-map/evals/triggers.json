@@ -1,0 +1,70 @@
+{
+  "cases": [
+    {
+      "id": "site-map-pos-01",
+      "query": "Plan the IA for our app: route tree for marketing plus dashboard, with navigation placement and URL conventions.",
+      "should_trigger": true
+    },
+    {
+      "id": "site-map-pos-02",
+      "query": "Revise our sitemap so /projects/:id checks server access and shareable filters live in ?status= query params.",
+      "should_trigger": true
+    },
+    {
+      "id": "site-map-pos-03",
+      "query": "We're adding team settings: where should /team and /settings/billing live, who can access them, and how do deep links and 404s behave?",
+      "should_trigger": true
+    },
+    {
+      "id": "site-map-pos-04",
+      "query": "Audit our current routes versus framework folders and tell me which URLs to preserve, redirect, or reserve before implementation.",
+      "should_trigger": true
+    },
+    {
+      "id": "site-map-pos-05",
+      "query": "Define public versus authenticated versus admin areas, with server enforcement points and expired-session return behavior.",
+      "should_trigger": true
+    },
+    {
+      "id": "site-map-pos-06",
+      "query": "Group our routes by the shell they share: which use the app sidebar, which use the marketing nav, and which stand alone like sign-in.",
+      "should_trigger": true
+    },
+    {
+      "expected_skill": "user-flow",
+      "id": "site-map-neg-01",
+      "near_miss": true,
+      "query": "Trace what happens when a viewer opens a shared /projects/:id link: sign-in, the access check, and what they see if they are denied.",
+      "should_trigger": false
+    },
+    {
+      "id": "site-map-neg-02",
+      "query": "Plan the /team page shell: sidebar, header, and how the member table collapses on mobile.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "ui-layout"
+    },
+    {
+      "expected_skill": "state-coverage",
+      "id": "site-map-neg-03",
+      "near_miss": true,
+      "query": "List the missing loading, empty, error, and permission states on the /projects/:id page.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "user-flow",
+      "id": "site-map-neg-04",
+      "near_miss": false,
+      "query": "Map the approval sequence from intake summary to client sign-off, including rejection and rework branches.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "content-hierarchy",
+      "id": "site-map-neg-05",
+      "near_miss": false,
+      "query": "Rank the content on our pricing page so the primary decision and CTA come first on mobile.",
+      "should_trigger": false
+    }
+  ],
+  "skill_name": "site-map"
+}

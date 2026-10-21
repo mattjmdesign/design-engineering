@@ -1,0 +1,70 @@
+{
+  "cases": [
+    {
+      "id": "project-list-gaps",
+      "query": "Inventory the gap states for our project list with filters and create action: loading, empty, errors, and retry.",
+      "should_trigger": true
+    },
+    {
+      "id": "delete-recovery",
+      "query": "Check states for deleting a client record: what confirms, what recovers, and what happens on failure?",
+      "should_trigger": true
+    },
+    {
+      "id": "offline-timeout",
+      "query": "Our form times out on save and retry sometimes duplicates: specify the recovery that keeps input safe.",
+      "should_trigger": true
+    },
+    {
+      "id": "permission-session",
+      "query": "What do viewers see on admin settings, and what happens when the session expires mid-task?",
+      "should_trigger": true
+    },
+    {
+      "id": "refresh-partial",
+      "query": "Review this dashboard for stale refresh, partial data, and failed loads: name the trigger and recovery for each gap.",
+      "should_trigger": true
+    },
+    {
+      "id": "state-coverage-expect-targets",
+      "query": "For each state on our invoices page, tell me how to force it and which selector proves it rendered.",
+      "should_trigger": true
+    },
+    {
+      "id": "state-coverage-compose-empty",
+      "query": "Build the project list's empty-state block from our existing Card and Button instead of a new component.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "component-compose"
+    },
+    {
+      "expected_skill": "user-flow",
+      "id": "flow-unknown",
+      "near_miss": true,
+      "query": "Map the entry-to-outcome steps for project creation: we don't know the flow yet, just the screens.",
+      "should_trigger": false
+    },
+    {
+      "id": "state-coverage-render-fix",
+      "query": "Capture the loading, empty, and error states at 390 and 1280 in both themes, then fix the spacing and contrast problems the render shows.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "interface-craft"
+    },
+    {
+      "id": "state-coverage-pick-first-bet",
+      "query": "Which of these two onboarding ideas should we build first, and what result would tell us we were right?",
+      "should_trigger": false,
+      "near_miss": false,
+      "expected_skill": "product-intent"
+    },
+    {
+      "expected_skill": "interface-craft",
+      "id": "state-coverage-mediocre-ui",
+      "query": "This list looks mediocre: refine the visual hierarchy and polish before review.",
+      "should_trigger": false,
+      "near_miss": false
+    }
+  ],
+  "skill_name": "state-coverage"
+}

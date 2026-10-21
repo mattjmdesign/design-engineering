@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Edge near misses</title>
+<!-- align.near_miss on right and top edges. Planted misses have classes starting with miss-, clean twins start with ok-. Each group sits in its own bordered
+     container, because edges are only compared inside one container. expected.json says which class each finding must or must not name. Capture at 800. -->
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ffffff; color: #1b1f24; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 24px; line-height: 1.25; margin: 0 0 16px; }
+  .group { padding: 16px; margin-bottom: 16px; border: 1px solid #d0d5dd; border-radius: 8px; }
+  .box { display: block; padding: 8px 16px; margin-bottom: 8px; border: 1px solid #6b7280; border-radius: 8px; background: #f9fafb; }
+  .row { display: flex; gap: 16px; }
+  .row .box { width: 200px; margin-bottom: 0; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Edge near misses</h1>
+
+  <div class="group" id="right-miss">
+    <div class="box miss-right-a" style="width: 560px">Right edge at the group's content edge</div>
+    <div class="box miss-right-b" style="width: 497px; margin-left: 60px">Right edge 3px short of the one above</div>
+  </div>
+
+  <div class="group" id="right-clean">
+    <div class="box ok-right-a" style="width: 560px">Same right edge</div>
+    <div class="box ok-right-b" style="width: 500px; margin-left: 60px">Same right edge, shifted left</div>
+    <div class="box ok-center-a" style="width: 500px; margin-left: auto; margin-right: auto">Centered</div>
+    <div class="box ok-center-b" style="width: 497px; margin-left: auto; margin-right: auto">Centered, 3px narrower</div>
+    <div class="box ok-left-a" style="width: 500px">Left aligned</div>
+    <div class="box ok-left-b" style="width: 497px">Left aligned, 3px narrower</div>
+  </div>
+
+  <div class="group" id="top-miss">
+    <div class="row" style="align-items: flex-start">
+      <div class="box miss-top-a" style="height: 80px">Top edge at the row start</div>
+      <div class="box miss-top-b" style="height: 60px; margin-top: 3px">Top edge 3px lower</div>
+    </div>
+  </div>
+
+  <div class="group" id="top-clean">
+    <div class="row" style="align-items: center; margin-bottom: 16px">
+      <div class="box ok-center-row-a" style="height: 80px">Centered in a row</div>
+      <div class="box ok-center-row-b" style="height: 74px">Tops differ, centers match</div>
+    </div>
+    <div class="row" style="align-items: flex-end; margin-bottom: 16px">
+      <div class="box ok-bottom-row-a" style="height: 80px">Bottoms match</div>
+      <div class="box ok-bottom-row-b" style="height: 74px">Tops differ, bottoms match</div>
+    </div>
+    <div class="row" style="align-items: flex-start">
+      <div class="box ok-equal-a" style="height: 80px">Equal tops</div>
+      <div class="box ok-equal-b" style="height: 60px">Equal tops</div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Agent context"
+  short_description: "Keep repository instructions accurate"
+  brand_color: "#B45309"
+  default_prompt: "Use $agent-context to write or audit accurate repository instructions before changing code."
+
+policy:
+  allow_implicit_invocation: true

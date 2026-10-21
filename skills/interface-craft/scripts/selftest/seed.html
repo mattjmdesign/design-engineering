@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Seeded Storage</title>
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.5 system-ui, sans-serif; color: #1b1f24; background: #fff; }
+  main { max-width: 640px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 16px; }
+</style>
+</head>
+<body>
+<main>
+  <h1 id="h">Waiting</h1>
+</main>
+<script>
+  // Runs before any async work: the seeded values must already exist here.
+  var seed = null, sess = null;
+  try { seed = localStorage.getItem('seed'); sess = sessionStorage.getItem('sess'); } catch (e) { /* storage blocked */ }
+  document.getElementById('h').textContent = 'Seed: ' + (seed === null ? 'missing' : seed) + ' / ' + (sess === null ? 'missing' : sess);
+</script>
+</body>
+</html>

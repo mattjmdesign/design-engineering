@@ -1,0 +1,8 @@
+interface:
+  display_name: "Interface craft"
+  short_description: "Measure and refine rendered interfaces"
+  brand_color: "#B45309"
+  default_prompt: "Use $interface-craft to improve this interface and verify the rendered result."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Site map"
+  short_description: "Plan routes, navigation, and URL state"
+  brand_color: "#B45309"
+  default_prompt: "Use $site-map to plan the pages, navigation, routes, and URL state for this product."
+
+policy:
+  allow_implicit_invocation: true

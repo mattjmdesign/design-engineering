@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wrapping Controls And Text</title>
+<!-- Planted wraps (classes starting with wrap-) and clean twins (classes starting with ok-). expected.json says which class each finding must or must not name. Capture at 390. -->
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ffffff; color: #1b1f24; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
+  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 16px; }
+  h2 { font-size: 20px; line-height: 1.25; margin: 0 0 16px; }
+  p { margin: 0 0 16px; }
+  section { margin-top: 32px; }
+  .row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px; margin-bottom: 16px; }
+  .btn { display: inline-block; padding: 8px 16px; border: 1px solid #6b7280; border-radius: 8px; background: #ffffff; color: #1b1f24; font: inherit; text-decoration: none; text-align: center; cursor: pointer; }
+  nav a { display: inline-block; padding: 8px 12px; color: #1b1f24; text-decoration: none; }
+  .tab, .item { display: inline-block; padding: 8px 12px; color: #1b1f24; cursor: pointer; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; background: #e5ecff; color: #0b3fb3; font-size: 14px; line-height: 1.5; }
+  .icon { width: 44px; height: 44px; padding: 0; border: 1px solid #6b7280; border-radius: 8px; background: #ffffff; }
+  .box { width: 358px; }
+  .note { font-size: 14px; color: #4b5563; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Wrapping controls</h1>
+
+  <section>
+    <h2>Buttons</h2>
+    <div class="row">
+      <button type="button" class="btn wrap-btn" style="width: 96px">Request changes</button>
+      <a href="#review" class="btn wrap-link-btn" style="width: 96px">Open review queue</a>
+      <button type="button" class="btn ok-btn">Save</button>
+      <button type="button" class="icon ok-icon" aria-label="Close"><svg width="16" height="16" aria-hidden="true"><path d="M2 2L14 14M14 2L2 14" stroke="#1b1f24" stroke-width="2"/></svg></button>
+    </div>
+    <div class="row">
+      <button type="button" class="btn ok-card" style="width: 160px; text-align: left"><span style="display: block; font-weight: 600">Draft a spec</span><span style="display: block; font-size: 14px">Start from a template with owners set</span></button>
+      <button type="button" class="btn ok-long" style="width: 200px">Request a review from every owner of the connected specs</button>
+      <button type="button" class="btn ok-pre" style="width: 96px; white-space: pre">Request
+changes</button>
+      <input type="button" class="btn ok-input" value="Request changes" style="width: 96px">
+      <button type="button" class="btn ok-br" style="width: 120px">Starter<br>plan</button>
+      <button type="button" class="btn ok-stack" style="width: 170px; text-align: left"><span style="display: flex; flex-wrap: wrap; column-gap: 8px"><span>Affected specs</span><span style="font-size: 12px; color: #4b5563">2 specs</span></span></button>
+    </div>
+    <div style="height: 0; overflow: hidden"><button type="button" class="btn ok-clipped" style="width: 96px">Request changes</button></div>
+    <div data-ui-measure-ignore><button type="button" class="btn ok-ignored" style="width: 96px">Request changes</button></div>
+    <p class="box">Read the <a class="ok-inline" href="#guide">connected specs guide for every owner</a> before you start.</p>
+  </section>
+
+  <section>
+    <h2>Navigation, tabs, menus, and badges</h2>
+    <nav aria-label="Primary" style="width: 120px"><a class="wrap-nav" href="#specs">Specifications overview</a></nav>
+    <nav aria-label="Secondary"><a class="ok-nav" href="#home">Specs</a></nav>
+    <div role="tablist" class="row">
+      <div role="tab" tabindex="0" class="tab wrap-tab" style="width: 70px">Open items</div>
+      <div role="tab" tabindex="0" class="tab ok-tab">Done</div>
+    </div>
+    <div role="menu" class="row">
+      <div role="menuitem" tabindex="0" class="item wrap-menu" style="width: 90px">Duplicate spec</div>
+      <div role="menuitem" tabindex="0" class="item ok-menu">Archive</div>
+    </div>
+    <div class="row">
+      <span class="badge wrap-badge" style="width: 64px">In progress</span>
+      <span class="badge ok-badge">Draft</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Text that wraps</h2>
+    <h2 class="box wrap-h">Connect a repository to start syncing specs</h2>
+    <h2 class="box ok-balance" style="text-wrap: balance">Connect a repository to start syncing specs</h2>
+    <h2 class="box ok-pretty" style="text-wrap: pretty">Connect a repository to start syncing specs</h2>
+    <h2 class="box ok-short">Sync specs</h2>
+    <h2 class="box ok-break">Connect a repository<br>now</h2>
+    <p class="box wrap-p">Every spec keeps its history, owners, and open questions together, so reviewers can decide quickly.</p>
+    <p class="box ok-p" style="text-wrap: pretty">Every spec keeps its history, owners, and open questions together, so reviewers can decide quickly.</p>
+    <pre class="box ok-pre-block" style="white-space: pre-wrap; margin: 0 0 16px; font: inherit">Every spec keeps its history, owners, and open questions together, so reviewers can decide quickly.</pre>
+  </section>
+</main>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{
+  "skill_name": "ui-variants",
+  "cases": [
+    {
+      "id": "ui-variants-pos-metric-card",
+      "query": "Give me three options for the metric card on the usage page so I can pick one.",
+      "should_trigger": true
+    },
+    {
+      "id": "ui-variants-pos-filter-bar",
+      "query": "Can you build a few alternatives for the filter bar above the specs table? I want to flip between them in the real page.",
+      "should_trigger": true
+    },
+    {
+      "id": "ui-variants-pos-region",
+      "query": "I'm not sure how the conflict detail content area should be organized. Show me some different directions to compare.",
+      "should_trigger": true
+    },
+    {
+      "id": "ui-variants-pos-invoked",
+      "query": "Use ui-variants on the inbox empty state.",
+      "should_trigger": true
+    },
+    {
+      "id": "ui-variants-pos-density",
+      "query": "Make a compact, a standard, and a roomy version of the members list and put them behind a toggle so the client can choose.",
+      "should_trigger": true
+    },
+    {
+      "id": "ui-variants-pos-round-two",
+      "query": "I liked the Ledger direction for the invoice summary. Run another round of options around it.",
+      "should_trigger": true
+    },
+    {
+      "id": "ui-variants-neg-fix-card",
+      "query": "The metric card's padding is uneven and its label wraps at 390. Fix it and show the rendered check.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "interface-craft"
+    },
+    {
+      "id": "ui-variants-neg-prop-variants",
+      "query": "Define the size and tone variants for our new MetricCard component and build it from the existing Card primitive.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "component-compose"
+    },
+    {
+      "id": "ui-variants-neg-plan-layout",
+      "query": "Plan the usage page layout: regions, the content column cap, and which region scrolls on narrow screens.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "ui-layout"
+    },
+    {
+      "id": "ui-variants-neg-ai-look",
+      "query": "Our cards have gradient titles, glows, and badges everywhere. Remove the AI-template look.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "slop-removal"
+    },
+    {
+      "id": "ui-variants-neg-color-schemes",
+      "query": "Define our light and dark theme color roles and check every text pair for contrast.",
+      "should_trigger": false,
+      "near_miss": false,
+      "expected_skill": "design-system"
+    },
+    {
+      "id": "ui-variants-neg-pattern-choice",
+      "query": "Here are the meeting notes about the usage report. Turn them into the right UI pattern and tell me which components build it.",
+      "should_trigger": false,
+      "near_miss": false,
+      "expected_skill": "ui-representation"
+    }
+  ]
+}

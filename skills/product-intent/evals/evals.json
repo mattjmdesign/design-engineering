@@ -1,0 +1,50 @@
+{
+  "skill_name": "product-intent",
+  "evals": [
+    {
+      "id": "vague-saas-idea",
+      "prompt": "I want to vibe code a SaaS dashboard for small agencies to manage client projects. Help me shape it before we build.",
+      "assertions": [
+        "Names primary users and business/client goal",
+        "Defines a first critical workflow instead of jumping to UI",
+        "Separates v1 must-haves from deferred ideas",
+        "Lists assumptions or open questions"
+      ]
+    },
+    {
+      "id": "client-demo-app",
+      "prompt": "A client asked for an AI intake portal. I need something impressive but not random. What exactly are we building?",
+      "assertions": [
+        "Includes client-facing outcome",
+        "Calls out constraints and risks",
+        "Avoids recommending implementation details as the main answer"
+      ]
+    },
+    {
+      "id": "feature-not-product",
+      "prompt": "Add a table with filters and export to CSV to our admin screen.",
+      "assertions": [
+        "Restates the underlying user job",
+        "Does not assume the table is the only solution",
+        "Respects explicit implementation scope and avoids unnecessary planning gates"
+      ]
+    },
+    {
+      "id": "no-premature-stack",
+      "prompt": "We have a rough idea for a booking app. What should we build it with?",
+      "assertions": [
+        "Clarifies users and workflow first",
+        "Does not recommend a framework or stack as the main answer"
+      ]
+    },
+    {
+      "id": "explicit-scope",
+      "prompt": "Add the agreed table, filters and CSV export to the existing admin view. Requirements and data contract are already in the repo.",
+      "assertions": [
+        "Reads existing intent without replacing the user-chosen solution",
+        "Does not insist on a new discovery interview",
+        "Supports the authorized implementation rather than ending at another brief"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+interface:
+  display_name: "Design system"
+  short_description: "Define and guard shared design tokens"
+  brand_color: "#B45309"
+  default_prompt: "Use $design-system to audit or evolve this project's tokens and shared styling with evidence."
+
+policy:
+  allow_implicit_invocation: true

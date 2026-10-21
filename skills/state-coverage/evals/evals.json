@@ -1,0 +1,50 @@
+{
+  "skill_name": "state-coverage",
+  "evals": [
+    {
+      "id": "project-list",
+      "prompt": "Inventory gap states for a project list page with filters and create project action.",
+      "assertions": [
+        "Includes filtered empty state",
+        "Includes create mutation states",
+        "Includes recovery actions",
+        "Includes test criteria"
+      ]
+    },
+    {
+      "id": "authenticated-dashboard",
+      "prompt": "What gap states are missing from an authenticated analytics dashboard?",
+      "assertions": [
+        "Includes expired session",
+        "Includes partial/stale data",
+        "Includes API error recovery"
+      ]
+    },
+    {
+      "id": "delete-flow",
+      "prompt": "Check states for deleting a client record.",
+      "assertions": [
+        "Chooses confirmation or undo from consequence and recoverability",
+        "Includes pending/failure states",
+        "Includes permission state"
+      ]
+    },
+    {
+      "id": "no-generic-errors",
+      "prompt": "Check our project list screen for missing states.",
+      "assertions": [
+        "Names specific states and recovery actions",
+        "Does not say 'handle errors' generically"
+      ]
+    },
+    {
+      "id": "no-spec",
+      "prompt": "There is no complete spec. Inspect this running form: it times out after saving and retry sometimes duplicates work.",
+      "assertions": [
+        "Does not refuse because a component spec is missing",
+        "Distinguishes uncertain outcome from rejection",
+        "Requires a safe reconciliation or idempotency contract"
+      ]
+    }
+  ]
+}

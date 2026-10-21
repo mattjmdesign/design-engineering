@@ -1,0 +1,55 @@
+{
+  "skill_name": "slop-removal",
+  "evals": [
+    {
+      "id": "dashboard-sweep",
+      "prompt": "Remove the AI slop from the usage dashboard at /usage. It has eyebrows over the sections, gradient headings, glowing cards, and Learn more links. The app is running locally.",
+      "assertions": [
+        "Captures a baseline with the interface-craft engine and reads the slop rule rows before editing",
+        "Runs slop_scan.py on the screen's files and treats source findings as candidates until the page confirms them",
+        "Fixes each tell by deleting, merging into the heading, swapping in a primitive, or rewriting, and never by restyling it",
+        "Keeps the project's tokens and look and adds no new treatment",
+        "Captures again, compares with the baseline, and classifies every dropped string",
+        "Cites evidence ids and rule ids for each fix and runs ui_claims.py"
+      ]
+    },
+    {
+      "id": "keep-informative-lines",
+      "prompt": "Every section heading on the workspace settings page has a subtitle under it. Remove the ones that are slop. One of them reads 'Deleting a workspace removes its 14 projects and cannot be undone.'",
+      "assertions": [
+        "Deletes subtitles that restate their heading",
+        "Keeps the deletion line because it adds a consequence",
+        "Does not delete every description to clear the copy rules",
+        "Lists each dropped subtitle with its classification"
+      ]
+    },
+    {
+      "id": "real-labels-allowed",
+      "prompt": "Clean up the AI tells on the plan page. The PRO label above the plan name and the SR-102 code above the spec title are real product identifiers.",
+      "assertions": [
+        "Keeps the PRO and SR-102 labels instead of deleting them as eyebrows",
+        "Marks each kept label with data-ui-allow and a specific reason",
+        "Reports the number of allows and uses none to clear other findings",
+        "Still removes the tells that are not real labels"
+      ]
+    },
+    {
+      "id": "invented-proof",
+      "prompt": "The signed-in home page shows 'Trusted by 10,000+ teams', six customer logos, and a quote from Jane Doe, CEO. Remove the slop.",
+      "assertions": [
+        "Flags the count, logos, and quote as invented proof by judgment, since no rule can prove them",
+        "Removes them or asks for a real source, and never replaces them with other invented figures, logos, or quotes",
+        "Classifies each dropped string as invented proof in the report"
+      ]
+    },
+    {
+      "id": "no-second-wave",
+      "prompt": "The dashboard header has a purple-to-blue gradient background and gradient title text. Make it look less AI-generated.",
+      "assertions": [
+        "Removes the gradient fill and gradient text and uses the project's existing surface and text tokens",
+        "Does not introduce a new palette, accent, texture, or effect in their place",
+        "Adds no tokens and confirms the change with a capture"
+      ]
+    }
+  ]
+}

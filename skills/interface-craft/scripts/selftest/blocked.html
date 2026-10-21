@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remote Requests</title>
+<!-- 192.0.2.1 is reserved for documentation (TEST-NET-1). The policy must block these requests before anything is sent. -->
+<link rel="stylesheet" href="http://192.0.2.1/theme.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.5 system-ui, sans-serif; color: #1b1f24; background: #fff; }
+  main { max-width: 640px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 16px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Remote requests</h1>
+  <p id="out">Waiting</p>
+  <img alt="Remote logo" width="32" height="32" src="http://192.0.2.1/logo.png">
+</main>
+<script>
+  fetch('http://192.0.2.1/api/data').then(function () { document.getElementById('out').textContent = 'reached'; })
+    .catch(function () { document.getElementById('out').textContent = 'blocked'; });
+  fetch('http://127.0.0.1:8765/api/audit', { method: 'DELETE' });
+  fetch('http://192.0.2.1/api/write', { method: 'POST', body: 'x' }).catch(function () {});
+</script>
+</body>
+</html>

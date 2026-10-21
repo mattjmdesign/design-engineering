@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Heading Roles</title>
+<!-- Headings of one level in one landmark should look the same. role-odd is a planted outlier among three matching h2 headings; role-hero and role-section are a
+     pair that may be intentional (info); role-aside sits in another landmark and must not be compared with main; tile-odd is the odd title among three
+     repeated tiles. Classes starting with ok- are clean twins. -->
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ffffff; color: #1b1f24; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .shell { display: flex; gap: 24px; max-width: 960px; margin: 0 auto; padding: 24px; }
+  main { flex: 1; min-width: 0; }
+  aside { width: 200px; }
+  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 16px; }
+  h2 { font-size: 20px; line-height: 1.25; font-weight: 600; margin: 0 0 8px; }
+  h3 { font-size: 20px; line-height: 1.25; font-weight: 600; margin: 0 0 8px; }
+  h4 { font-size: 16px; line-height: 1.25; font-weight: 600; margin: 0 0 8px; }
+  p { margin: 0 0 16px; }
+  section { margin-top: 24px; }
+  .tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .tile { border: 1px solid #d0d5dd; border-radius: 8px; padding: 16px; }
+  .tile-title { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+  .tile p { margin: 0; font-size: 14px; }
+</style>
+</head>
+<body>
+<div class="shell">
+<main>
+  <h1>Heading roles</h1>
+  <section>
+    <h2 class="ok-h2">Recent specs</h2>
+    <p>Three matching headings and one that is smaller.</p>
+    <h2 class="ok-h2">Starting points</h2>
+    <p>Each section starts with a heading of the same size.</p>
+    <h2 class="ok-h2">Usage by team</h2>
+    <p>Usage figures by team.</p>
+    <h2 class="role-odd" style="font-size: 16px">Billing</h2>
+    <p>A fourth h2 that is smaller than the others.</p>
+  </section>
+  <section>
+    <h3 class="role-hero" style="font-size: 32px">Ship every spec</h3>
+    <h3 class="role-section">Review queue</h3>
+  </section>
+  <section>
+    <h4 class="ok-h4">First note</h4>
+    <h4 class="ok-h4">Second note</h4>
+    <h4 class="ok-h4">Third note</h4>
+  </section>
+  <section class="tiles">
+    <div class="tile"><div class="tile-title">Draft</div><p>Start from a template.</p></div>
+    <div class="tile"><div class="tile-title">Review</div><p>See open questions.</p></div>
+    <div class="tile"><div class="tile-title tile-odd" style="font-size: 18px">Ship</div><p>Hand off with history.</p></div>
+  </section>
+</main>
+<aside>
+  <h2 class="ok-aside" style="font-size: 14px">Side notes</h2>
+  <p>A heading in another landmark is not compared with the headings in main.</p>
+</aside>
+</div>
+</body>
+</html>

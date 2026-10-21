@@ -1,0 +1,8 @@
+interface:
+  display_name: "Testable requirements (moved)"
+  short_description: "Use UI representation for requirements"
+  brand_color: "#B45309"
+  default_prompt: "Use $ui-representation to turn this input into testable UI requirements and acceptance criteria."
+
+policy:
+  allow_implicit_invocation: false

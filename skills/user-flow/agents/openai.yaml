@@ -1,0 +1,8 @@
+interface:
+  display_name: "User flow"
+  short_description: "Map actions, outcomes, and recovery branches"
+  brand_color: "#B45309"
+  default_prompt: "Use $user-flow to map this task from entry through success, interruption, and recovery."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,0 +1,6 @@
+.DS_Store
+.ui-evidence/
+__pycache__/
+*.pyc
+.venv/
+.codex/

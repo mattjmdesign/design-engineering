@@ -1,0 +1,8 @@
+interface:
+  display_name: "UI representation"
+  short_description: "Turn input into the right UI pattern"
+  brand_color: "#B45309"
+  default_prompt: "Use $ui-representation to turn these notes or requirements into the right UI and component map."
+
+policy:
+  allow_implicit_invocation: true

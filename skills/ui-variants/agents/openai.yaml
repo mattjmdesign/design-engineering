@@ -1,0 +1,8 @@
+interface:
+  display_name: "UI variants"
+  short_description: "Compare three measured interface options"
+  brand_color: "#B45309"
+  default_prompt: "Use $ui-variants to build and compare three measured options for this component or region."
+
+policy:
+  allow_implicit_invocation: true

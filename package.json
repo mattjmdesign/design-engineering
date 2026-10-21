@@ -1,0 +1,46 @@
+{
+  "name": "design-engineering",
+  "version": "1.0.0",
+  "description": "Portable design engineering Agent Skills for product designers working in code.",
+  "files": [
+    ".agents/",
+    ".claude-plugin/",
+    ".codex-plugin/",
+    "docs/**/*.md",
+    "licenses/*.txt",
+    "scripts/*.py",
+    "scripts/*.sh",
+    "skills/**/*.html",
+    "skills/**/*.js",
+    "skills/**/*.json",
+    "skills/**/*.md",
+    "skills/**/*.py",
+    "skills/**/*.yaml",
+    "snapshot/*.sha256",
+    "AGENTS.md",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+    "LICENSE",
+    "README.md",
+    "THIRD-PARTY-NOTICES.md",
+    "migration.json",
+    "plugin.json",
+    "source-manifest.json"
+  ],
+  "keywords": [
+    "agent-skills",
+    "design-engineering",
+    "design-system",
+    "product-design",
+    "pi"
+  ],
+  "author": "Matt Mitchell <matthew.jo.mitchell@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mattjmdesign/design-engineering.git"
+  },
+  "pi": {
+    "skills": ["./skills"]
+  }
+}

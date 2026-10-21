@@ -1,0 +1,56 @@
+{
+  "skill_name": "component-compose",
+  "evals": [
+    {
+      "id": "missing-combobox",
+      "prompt": "Add an assignee picker to each task row. The repo uses shadcn/ui on Base UI; components/ui has Popover, InputGroup, Avatar, Button, and Item, but no combobox. Five feature files already hand-build a search popover from Popover and InputGroup.",
+      "assertions": [
+        "Runs the ui_inventory.py inventory (or reads components/ui by hand and says so) before writing any component",
+        "Checks the registry for a combobox before creating one",
+        "Treats the five existing search popovers as a missing primitive and puts one picker in components/ui rather than a sixth copy",
+        "Imports every part from @/components/ui/*, with no @base-ui/react import in feature code",
+        "Reports each part as Reused, Extended, Composed, or Created, with a reason for anything Created"
+      ]
+    },
+    {
+      "id": "restyle-request",
+      "prompt": "Make the Archive button on the project header red and a bit smaller than the other buttons.",
+      "assertions": [
+        "Uses an existing Button variant and size (such as destructive and sm) or adds one in components/ui/button.tsx",
+        "Adds no color, padding, height, or radius classes to the Button at the call site",
+        "Renders no raw <button> element",
+        "Runs the audit on the changed files or states that it could not"
+      ]
+    },
+    {
+      "id": "stale-components-json",
+      "prompt": "Add a view toggle (list or board) to the projects toolbar. components.json says the style is radix-nova with lucide icons, but the ui/ files import @base-ui/react and the app imports icons from HugeIcons.",
+      "assertions": [
+        "Reads the stack from the imports and says components.json is stale",
+        "Uses Base UI composition (the render prop) rather than asChild",
+        "Uses HugeIcons for the icons, not lucide",
+        "Uses the existing ui/ toggle group wrapper, or extends it, instead of importing Base UI's ToggleGroup in the page"
+      ]
+    },
+    {
+      "id": "real-gap",
+      "prompt": "We need a Gantt-style timeline of tasks by week. Nothing in components/ui or the shadcn registry draws one. Build it.",
+      "assertions": [
+        "Builds the component rather than refusing or forcing an unsuitable existing one",
+        "States what was searched, the nearest existing component, and why it fails",
+        "Writes a contract covering props, states, keyboard and focus behavior, and data ownership",
+        "Builds its controls and surfaces from components/ui parts (for example Button, Tooltip, and Card) instead of raw elements"
+      ]
+    },
+    {
+      "id": "spec-before-build",
+      "prompt": "Spec a ProjectStatusBadge component with active, paused, blocked, and completed states before we build it.",
+      "assertions": [
+        "Checks for an existing Badge and composes or extends it instead of defining a new primitive",
+        "Keeps the mapping from project status to label and tone in the projects feature, not in the Badge primitive",
+        "Covers accessibility: text carries the meaning, and the label does not truncate",
+        "Labels sizes or behaviors the repo does not show as proposals"
+      ]
+    }
+  ]
+}

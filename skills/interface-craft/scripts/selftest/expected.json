@@ -1,0 +1,316 @@
+{
+  "about": "What ui_measure.py selftest expects. good.html must produce no FAIL and no WARN. bad.html plants the defects listed under cases.bad.present and each must be found by rule id and tier. width and theme narrow a check to one capture.",
+  "unit": {
+    "contrast": [
+      ["#777777", "#ffffff", 4.48],
+      ["#000000", "#ffffff", 21.0],
+      ["#ffffff", "#ffffff", 1.0],
+      ["#909090", "#ffffff", 3.19],
+      ["#767676", "#ffffff", 4.54],
+      ["#0b5fff", "#ffffff", 5.13]
+    ],
+    "hue": [["#ff0000", 29.2], ["#00ff00", 142.5], ["#0000ff", 264.1]],
+    "policy": [
+      ["http://127.0.0.1:3000/api/specs", "GET", false, "allow"],
+      ["http://localhost:5173/", "GET", false, "allow"],
+      ["http://[::1]:8080/", "GET", false, "allow"],
+      ["https://app.localhost/", "GET", false, "allow"],
+      ["http://127.0.0.1:3000/api/specs", "POST", false, "stub"],
+      ["http://127.0.0.1:3000/api/specs", "DELETE", false, "stub"],
+      ["http://127.0.0.1:3000/api/specs", "OPTIONS", false, "stub"],
+      ["http://example.com/", "GET", false, "block"],
+      ["http://localhost.evil.com/", "GET", false, "block"],
+      ["http://127.0.0.1.evil.com/", "GET", false, "block"],
+      ["http://evil.com\\@127.0.0.1/", "GET", false, "block"],
+      ["http://user@127.0.0.1/", "GET", false, "block"],
+      ["http://0.0.0.0:80/", "GET", false, "block"],
+      ["http://2130706433/", "GET", false, "block"],
+      ["http://[::ffff:127.0.0.1]/", "GET", false, "block"],
+      ["file:///tmp/page.html", "GET", false, "allow"],
+      ["file://remote/share/page.html", "GET", false, "block"],
+      ["data:text/plain,hello", "GET", false, "allow"],
+      ["ftp://example.com/file", "GET", false, "block"],
+      ["chrome://settings", "GET", false, "block"],
+      ["https://cdn.example.com/app.js", "GET", true, "allow"],
+      ["https://cdn.example.com/api", "POST", true, "stub"]
+    ],
+    "start_url": [
+      ["http://127.0.0.1:3000/", false, "ok"],
+      ["http://localhost:5173/dashboard?tab=1", false, "ok"],
+      ["file:///tmp/page.html", false, "ok"],
+      ["http://example.com/", false, "refuse"],
+      ["https://example.com/", true, "ok"],
+      ["javascript:alert(1)", false, "refuse"],
+      ["", false, "refuse"],
+      ["file://remote/x.html", false, "refuse"]
+    ]
+  },
+  "cases": {
+    "good": {
+      "page": "good.html",
+      "args": ["--widths", "390,1280", "--themes", "light,dark", "--squint"],
+      "max_fail": 0,
+      "max_warn": 0,
+      "min_ignored": 5,
+      "forbid_text": ["toggle", "state"]
+    },
+    "bad": {
+      "page": "bad.html",
+      "args": ["--widths", "390,1280", "--themes", "light,dark"],
+      "present": [
+        {"defect": "off-grid padding of 13px", "rule": "grid.spacing", "tier": "WARN", "theme": "light", "contains": "13px"},
+        {"defect": "one card deviates from its group", "rule": "component.conformance", "tier": "WARN", "theme": "light"},
+        {"defect": "left edge 2px off the column", "rule": "align.near_miss", "tier": "WARN", "theme": "light", "contains": "2 px"},
+        {"defect": "20px target", "rule": "target.size", "tier": "FAIL", "theme": "light", "contains": "20px"},
+        {"defect": "text at 3.2:1", "rule": "contrast.text", "tier": "FAIL", "theme": "light", "contains": "3.19:1"},
+        {"defect": "overflow at 390", "rule": "overflow.page", "tier": "FAIL", "width": 390, "theme": "light"},
+        {"defect": "input 36px beside button 32px", "rule": "control.height", "tier": "WARN", "theme": "light", "contains": "36px"},
+        {"defect": "removed focus ring", "rule": "focus.visible", "tier": "FAIL", "theme": "light"},
+        {"defect": "13 items over 14 rows", "rule": "content.count", "tier": "WARN", "theme": "light", "contains": "13"},
+        {"defect": "div with onclick", "rule": "a11y.clickable", "tier": "FAIL", "theme": "light"},
+        {"defect": "image with no alt", "rule": "a11y.structure", "tier": "FAIL", "theme": "light", "contains": "alt"},
+        {"defect": "text below 12px", "rule": "type.scale", "tier": "WARN", "theme": "light", "contains": "10px"},
+        {"defect": "heading closer to the previous section", "rule": "rhythm.heading", "tier": "WARN", "theme": "light", "contains": "Beta"},
+        {"defect": "icon button with no accessible name", "rule": "a11y.names", "tier": "FAIL", "theme": "light"},
+        {"defect": "field named only by its placeholder", "rule": "a11y.names", "tier": "WARN", "theme": "light", "contains": "placeholder"},
+        {"defect": "console error", "rule": "console.errors", "tier": "FAIL", "theme": "light"},
+        {"defect": "dark requested but the page stays light", "rule": "theme.truth", "tier": "WARN", "theme": "dark"}
+      ],
+      "absent": [{"rule": "overflow.page", "width": 1280}, {"rule": "theme.truth", "theme": "light"}],
+      "min_total_planted": 12
+    },
+    "themed": {
+      "page": "themed.html",
+      "args": ["--widths", "800", "--themes", "light,dark"],
+      "present": [
+        {"defect": "dark text too faint", "rule": "contrast.text", "tier": "FAIL", "theme": "dark", "contains": "2.50:1"}
+      ],
+      "absent": [{"rule": "contrast.text", "theme": "light"}, {"rule": "theme.truth", "theme": "dark"}],
+      "oklch": {"light": [0.25, 0.02, 260], "dark": [0.45, 0.01, 260]},
+      "page_bg_light": [235, 242, 255],
+      "channel_tolerance": 2
+    },
+    "edge": {
+      "page": "torture.html",
+      "args": ["--widths", "390"],
+      "max_fail": 0,
+      "present": [
+        {"why": "text over an image can only be reported as unknown", "rule": "contrast.text", "tier": "WARN", "contains": "image"},
+        {"why": "truncated text is listed so a person can confirm nothing essential is hidden", "rule": "overflow.clip", "tier": "INFO", "contains": "ellipsis"}
+      ],
+      "absent": [
+        {"why": "a modal dialog is meant to overlay the page", "rule": "overlap.text"},
+        {"why": "controls behind a modal are inert, not unreachable", "rule": "focus.order"},
+        {"why": "controls behind a modal are not covered by a defect", "rule": "target.size", "contains": "covered"},
+        {"why": "browser default padding on buttons is not authored", "rule": "grid.spacing", "contains": "6px"},
+        {"why": "browser default margins on radio buttons are not authored", "rule": "grid.spacing", "contains": "3px"},
+        {"why": "a centered dialog is not a near-miss", "rule": "align.near_miss"},
+        {"why": "an svg image is not upscaled", "rule": "media.images"}
+      ],
+      "tab_stops": 1
+    },
+    "blocked": {
+      "page": "blocked.html",
+      "args": ["--widths", "800"],
+      "min_blocked": 3,
+      "min_stubbed": 2,
+      "blocked_host": "192.0.2.1",
+      "max_fail": 0
+    },
+    "states": {
+      "spec": "states.json",
+      "args": ["--widths", "390", "--sheet"],
+      "confirmed": ["loading", "empty", "error", "full", "offline", "opened", "saved", "typed"],
+      "unconfirmed": ["ghost"],
+      "min_stubbed_writes": 1
+    },
+    "seed": {
+      "page": "seed.html",
+      "value_secret": "SECRET-VALUE-123",
+      "url_secret": "SECRET-QUERY-456",
+      "heading_seeded": "Seed: ok / 1",
+      "heading_missing": "Seed: missing / missing"
+    },
+    "wrap": {
+      "page": "wrap.html",
+      "args": ["--widths", "390", "--no-focus"],
+      "present": [
+        {"defect": "a two-line button label", "rule": "control.wrap", "tier": "FAIL", "class": "wrap-btn"},
+        {"defect": "a three-line label on a button-like link", "rule": "control.wrap", "tier": "FAIL", "class": "wrap-link-btn"},
+        {"defect": "a two-line navigation item", "rule": "control.wrap", "tier": "WARN", "class": "wrap-nav"},
+        {"defect": "a two-line tab", "rule": "control.wrap", "tier": "WARN", "class": "wrap-tab"},
+        {"defect": "a two-line menu item", "rule": "control.wrap", "tier": "WARN", "class": "wrap-menu"},
+        {"defect": "a two-line badge", "rule": "control.wrap", "tier": "WARN", "class": "wrap-badge"},
+        {"defect": "a heading that ends on one word", "rule": "type.wrap", "tier": "WARN", "class": "wrap-h"},
+        {"defect": "a paragraph that ends on a short last line", "rule": "type.wrap", "tier": "INFO", "class": "wrap-p"}
+      ],
+      "absent": [
+        {"why": "a one-line button", "rule": "control.wrap", "class": "ok-btn"},
+        {"why": "an icon-only button has no label to wrap", "rule": "control.wrap", "class": "ok-icon"},
+        {"why": "a card-like button with block content is meant to span lines", "rule": "control.wrap", "class": "ok-card"},
+        {"why": "a label over 48 characters is copy, not a control label", "rule": "control.wrap", "class": "ok-long"},
+        {"why": "white-space: pre breaks lines on purpose", "rule": "control.wrap", "class": "ok-pre"},
+        {"why": "input elements are out of scope", "rule": "control.wrap", "class": "ok-input"},
+        {"why": "a clipped control shows no second line", "rule": "control.wrap", "class": "ok-clipped"},
+        {"why": "tooling under data-ui-measure-ignore is never judged", "rule": "control.wrap", "class": "ok-ignored"},
+        {"why": "a link inside a sentence wraps with the sentence", "rule": "control.wrap", "class": "ok-inline"},
+        {"why": "a title and a count that only stack are separate blocks, not a wrapped label", "rule": "control.wrap", "class": "ok-stack"},
+        {"why": "a br breaks the label on purpose", "rule": "control.wrap", "class": "ok-br"},
+        {"why": "a one-line navigation item", "rule": "control.wrap", "class": "ok-nav"},
+        {"why": "a one-line tab", "rule": "control.wrap", "class": "ok-tab"},
+        {"why": "a one-line menu item", "rule": "control.wrap", "class": "ok-menu"},
+        {"why": "a one-line badge", "rule": "control.wrap", "class": "ok-badge"},
+        {"why": "the same heading with text-wrap: balance", "rule": "type.wrap", "class": "ok-balance"},
+        {"why": "the same heading with text-wrap: pretty", "rule": "type.wrap", "class": "ok-pretty"},
+        {"why": "a heading on one line", "rule": "type.wrap", "class": "ok-short"},
+        {"why": "a br breaks the heading on purpose", "rule": "type.wrap", "class": "ok-break"},
+        {"why": "the same paragraph with text-wrap: pretty", "rule": "type.wrap", "class": "ok-p"},
+        {"why": "pre keeps its own wrapping", "rule": "type.wrap", "class": "ok-block"}
+      ]
+    },
+    "nested": {
+      "page": "nested.html",
+      "args": ["--widths", "800", "--no-focus"],
+      "present": [
+        {"defect": "radius 8 inside 12 with an 8 inset (should be 4)", "rule": "shape.nested", "tier": "WARN", "class": "nest-bad"},
+        {"defect": "a square band flush with a rounded container that does not clip", "rule": "shape.nested", "tier": "WARN", "class": "flush-bad"},
+        {"defect": "a radius of 7 that is not on the radius scale", "rule": "shape.radius", "tier": "WARN", "class": "untokened-btn", "contains": "not on the radius scale"}
+      ],
+      "absent": [
+        {"why": "radius 4 inside 12 with an 8 inset is concentric", "rule": "shape.nested", "class": "ok-nest"},
+        {"why": "an inset of 16 puts the child corner outside the curved zone", "rule": "shape.nested", "class": "ok-deep"},
+        {"why": "a flush band inside a container that clips is hidden by the clip", "rule": "shape.nested", "class": "flush-clip"},
+        {"why": "radius 6 equals 16 minus a 10 inset", "rule": "shape.nested", "class": "ok-derived"},
+        {"why": "a pill is skipped", "rule": "shape.nested", "class": "ok-pill"},
+        {"why": "a derived radius is explained by nesting even when it is not a token", "rule": "shape.radius", "class": "ok-derived", "contains": "not on the radius scale"},
+        {"why": "radius 8 is a token", "rule": "shape.radius", "class": "ok-btn", "contains": "not on the radius scale"}
+      ],
+      "expected_radius": 4,
+      "untokened_values": ["7"]
+    },
+    "role": {
+      "page": "role.html",
+      "args": ["--widths", "800", "--no-focus"],
+      "present": [
+        {"defect": "one h2 of 16px among three h2 of 20px in main", "rule": "type.role", "tier": "WARN", "class": "role-odd"},
+        {"defect": "a hero and a section heading may be intentional", "rule": "type.role", "tier": "INFO", "class": "role-hero"},
+        {"defect": "the odd title among three repeated tiles", "rule": "type.role", "tier": "WARN", "class": "tile-odd"}
+      ],
+      "absent": [
+        {"why": "matching h2 headings in main", "rule": "type.role", "class": "ok-h2"},
+        {"why": "matching h4 headings in main", "rule": "type.role", "class": "ok-h4"},
+        {"why": "a heading in another landmark is not compared with main", "rule": "type.role", "class": "ok-aside"}
+      ]
+    },
+    "content": {
+      "page": "content.html",
+      "args": ["--widths", "390,1920", "--no-focus"],
+      "present": [
+        {"defect": "content 4px from the region edge at 390", "rule": "layout.content", "tier": "WARN", "width": 390, "contains": "from the left edge"},
+        {"defect": "4px on the left and 20px on the right at 390", "rule": "layout.content", "tier": "WARN", "width": 390, "contains": "equal insets differ"},
+        {"defect": "a form column with no width cap at 1920", "rule": "layout.content", "tier": "WARN", "width": 1920, "contains": "form or prose column"},
+        {"defect": "inner containers of 1120 and 1080 in neighboring sections", "rule": "layout.content", "tier": "WARN", "width": 1920, "contains": "do not share one column"}
+      ],
+      "absent": [
+        {"why": "both sections fill the column at 390", "rule": "layout.content", "width": 390, "contains": "do not share one column"},
+        {"why": "the 1920 column has equal 24px insets", "rule": "layout.content", "width": 1920, "contains": "equal insets differ"},
+        {"why": "the 1920 gutters are 24px", "rule": "layout.content", "width": 1920, "contains": "edge of the main region"}
+      ],
+      "good_page": "content-good.html",
+      "data_page": "content-data.html",
+      "inner_page": "content-inner.html"
+    },
+    "routes": {
+      "pages": ["shell-a.html", "shell-b.html", "shell-c.html"],
+      "args": ["--widths", "1280,390", "--no-focus"],
+      "deviant": "shell-c",
+      "present": [
+        {"defect": "a footer missing on one route", "key": "missing:contentinfo", "width": 1280, "contains": "the footer is missing on shell-c.html at 1280px wide but present on shell-a.html, shell-b.html (2 of 3 routes)"},
+        {"defect": "a footer missing on one route at 390", "key": "missing:contentinfo", "width": 390},
+        {"defect": "a rail 16px wider", "key": "geometry:nav:width", "width": 1280, "contains": "the nav is 256px wide on shell-c.html at 1280px wide but 240px on shell-a.html, shell-b.html", "value": 16, "dominant": 240},
+        {"defect": "a page title 4px larger", "key": "title:size", "width": 1280, "contains": "the page title is 32px on shell-c.html at 1280px wide but 28px", "value": 4, "dominant": 28},
+        {"defect": "a page title 4px larger at 390", "key": "title:size", "width": 390},
+        {"defect": "a content column set against the rail instead of centered", "key": "content:left", "width": 1280, "contains": "the content column starts 280px from the left edge on shell-c.html", "dominant": 304}
+      ],
+      "absent": [
+        {"why": "a column that fills the viewport at 390 matches there, so the shift shows only at 1280", "key": "content:left", "width": 390},
+        {"why": "the column is as wide on every route, whatever its left edge", "key": "content:width"},
+        {"why": "a static rail is as tall as its page, so its height is not compared", "key": "geometry:nav:height", "width": 1280},
+        {"why": "a static footer sits where the content ends, so its y is not compared", "key": "geometry:contentinfo:y"},
+        {"why": "the header is the same on every route", "key": "geometry:banner"},
+        {"why": "the nav items are the same on every route", "key": "nav"},
+        {"why": "the title weight, color, and offset are the same on every route", "key": "title:weight"}
+      ],
+      "ignore": ["--ignore", "footer,nav", "--widths", "1280", "--no-focus"],
+      "fix": "render one shared shell component for every route and let only the content region change"
+    },
+    "align": {
+      "page": "align.html",
+      "args": ["--widths", "800", "--no-focus"],
+      "present": [
+        {"defect": "stacked boxes whose right edges are 3px apart", "rule": "align.near_miss", "tier": "WARN", "class": "miss-right-b", "contains": "right edge"},
+        {"defect": "boxes side by side whose tops are 3px apart", "rule": "align.near_miss", "tier": "WARN", "class": "miss-top-b", "contains": "top edge"}
+      ],
+      "absent": [
+        {"why": "boxes with the same right edge", "rule": "align.near_miss", "class": "ok-right-b", "contains": "right edge"},
+        {"why": "a centered stack has different right edges because its widths differ", "rule": "align.near_miss", "class": "ok-center-a", "contains": "right edge"},
+        {"why": "a left-aligned stack has different right edges because its widths differ", "rule": "align.near_miss", "class": "ok-left-b", "contains": "right edge"},
+        {"why": "a row with its items centered has different tops on purpose", "rule": "align.near_miss", "class": "ok-center-row-b", "contains": "top edge"},
+        {"why": "a row with its items on one bottom edge has different tops on purpose", "rule": "align.near_miss", "class": "ok-bottom-row-b", "contains": "top edge"},
+        {"why": "a row with equal tops", "rule": "align.near_miss", "class": "ok-equal-b", "contains": "top edge"}
+      ]
+    },
+    "slop": {
+      "page": "slop.html",
+      "clean_page": "slop-clean.html",
+      "card_page": "shadcn-card.html",
+      "args": ["--widths", "1280", "--no-focus"],
+      "card_args": ["--widths", "800", "--no-focus"],
+      "present": [
+        {"defect": "an uppercase tracked label over the h1", "rule": "slop.eyebrow", "tier": "WARN", "class": "slop-eyebrow", "fix": "fold the words that carry information into the heading"},
+        {"defect": "an eyebrow with a bare data-ui-allow keeps its WARN", "rule": "slop.eyebrow", "tier": "WARN", "class": "slop-eyebrow-bare"},
+        {"defect": "an eyebrow with an allow and a reason is INFO", "rule": "slop.eyebrow", "tier": "INFO", "class": "slop-eyebrow-allowed", "contains": "allowed by data-ui-allow"},
+        {"defect": "a subtitle that repeats its heading", "rule": "slop.restates_heading", "tier": "INFO", "class": "slop-restates", "fix": "adds a condition, a consequence, an example, or a next step"},
+        {"defect": "one line said three times in a card", "rule": "slop.repeated_text", "tier": "WARN", "class": "slop-echo", "fix": "Say each fact once"},
+        {"defect": "a Learn more link", "rule": "slop.generic_action", "tier": "WARN", "class": "slop-learn", "fix": "verb and what it acts on"},
+        {"defect": "a Get started link", "rule": "slop.generic_action", "tier": "WARN", "class": "slop-started"},
+        {"defect": "an empty state with no action", "rule": "slop.empty_state", "tier": "WARN", "class": "slop-empty", "fix": "put the action under it"},
+        {"defect": "a card inside a card", "rule": "slop.nested_cards", "tier": "WARN", "class": "slop-inner", "fix": "Keep one level"},
+        {"defect": "text filled with a gradient", "rule": "slop.gradient_text", "tier": "WARN", "class": "slop-gradient", "fix": "one solid color"},
+        {"defect": "a colored glow", "rule": "slop.glow", "tier": "WARN", "class": "slop-glow", "fix": "one neutral shadow"},
+        {"defect": "a colored left stripe", "rule": "slop.side_stripe", "tier": "WARN", "class": "slop-stripe", "fix": "Remove the stripe"},
+        {"defect": "three badges scattered through one card", "rule": "slop.badge_density", "tier": "WARN", "class": "slop-badges", "fix": "real state that changes"},
+        {"defect": "a long dash in copy", "rule": "slop.dash", "tier": "INFO", "class": "slop-dash", "fix": "a period, a comma, a colon, or parentheses"},
+        {"defect": "an allow with no reason", "rule": "allow.reason", "tier": "WARN", "class": "slop-eyebrow-bare", "contains": "gives no reason"}
+      ],
+      "absent": [
+        {"why": "a link named More inside nav is skipped", "class": "ok-nav-generic"},
+        {"why": "a colored left border on a nav item is an active marker, so nav is skipped", "class": "ok-nav-stripe"},
+        {"why": "an uppercase label inside nav is skipped", "class": "ok-nav-caps"},
+        {"why": "a date above a heading is a label with a job", "class": "ok-date"},
+        {"why": "Step N above a heading is a label with a job", "class": "ok-step"},
+        {"why": "aria-hidden content is never read as copy", "class": "ok-hidden"},
+        {"why": "uppercase with no tracking is not an eyebrow", "class": "ok-plain"},
+        {"why": "a label past 34 characters is not an eyebrow", "class": "ok-long"},
+        {"why": "a subtitle that adds words is not a restatement", "class": "ok-subtitle"},
+        {"why": "a neutral shadow is not a glow", "class": "ok-shadow"},
+        {"why": "a focus ring has no blur, so it is not a glow", "class": "ok-ring"},
+        {"why": "a neutral rule beside a quotation is not a stripe", "class": "ok-quote"},
+        {"why": "a row of tags in one parent is one group", "class": "ok-tags"},
+        {"why": "a code block and an alert inside a card are not nested cards", "class": "ok-code"},
+        {"why": "the same text in sibling cards that share one structure is a pattern", "class": "ok-tiles"},
+        {"why": "an empty state with its action under it", "class": "ok-empty"},
+        {"why": "a table is skipped", "class": "ok-table"},
+        {"why": "a named action is not generic", "class": "ok-action"}
+      ],
+      "live_counts": {"slop.eyebrow": 2, "slop.restates_heading": 2, "slop.repeated_text": 1, "slop.generic_action": 2, "slop.empty_state": 1, "slop.nested_cards": 1,
+                      "slop.gradient_text": 1, "slop.glow": 1, "slop.side_stripe": 1, "slop.badge_density": 1, "slop.dash": 1},
+      "allow_reason": "product name lockup, owner approved",
+      "drops": {
+        "slop": ["New release", "Learn more"],
+        "replaced": ["Fast, reliable, and built for teams"],
+        "unclassified": ["Questions? Ask in the team channel."]
+      }
+    }
+  }
+}

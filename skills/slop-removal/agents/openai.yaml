@@ -1,0 +1,8 @@
+interface:
+  display_name: "Slop removal"
+  short_description: "Remove generated UI noise with evidence"
+  brand_color: "#B45309"
+  default_prompt: "Use $slop-removal to find and remove generated UI tells from this screen."
+
+policy:
+  allow_implicit_invocation: true

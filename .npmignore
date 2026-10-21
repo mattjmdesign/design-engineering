@@ -1,0 +1,9 @@
+.DS_Store
+.codex/
+.ui-evidence/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyc
+test-results/
+playwright-report/

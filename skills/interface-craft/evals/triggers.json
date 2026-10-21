@@ -1,0 +1,121 @@
+{
+  "cases": [
+    {
+      "id": "interface-craft-spacing-drift",
+      "query": "The gutters and card padding differ between our settings page and our billing page. Make the spacing consistent across screens.",
+      "should_trigger": true
+    },
+    {
+      "id": "interface-craft-wrapping-label",
+      "query": "The Save changes button wraps to two lines at 390px and is taller than the button beside it. Fix it without shrinking the text.",
+      "should_trigger": true
+    },
+    {
+      "id": "interface-craft-radius-mismatch",
+      "query": "The buttons inside our cards have corners that look pinched against the card radius. Make the corner radii consistent.",
+      "should_trigger": true
+    },
+    {
+      "id": "interface-craft-heading-drift",
+      "query": "Our section headings use different sizes and weights from page to page. Bring them to one hierarchy and keep the look.",
+      "should_trigger": true
+    },
+    {
+      "id": "interface-craft-shell-drift",
+      "query": "The sidebar and header are a few pixels different between the dashboard and the settings page. Make them identical on every route.",
+      "should_trigger": true
+    },
+    {
+      "id": "interface-craft-measured-check",
+      "query": "Run a measured check of overflow, contrast, and focus at 390 and 1280 in light and dark, then fix what fails.",
+      "should_trigger": true
+    },
+    {
+      "id": "interface-craft-heading-orphans",
+      "query": "Several headings end on a single word at the end of the line on mobile. Fix the wrapping.",
+      "should_trigger": true
+    },
+    {
+      "id": "interface-craft-keyboard-access",
+      "query": "Audit this flow for keyboard support, focus order, and contrast, then fix the blockers you find.",
+      "should_trigger": true
+    },
+    {
+      "id": "interface-craft-narrow-breakage",
+      "query": "At 390px the labels wrap and the columns on this marketing page no longer line up. Fix the alignment and wrapping and show the rendered checks.",
+      "should_trigger": true
+    },
+    {
+      "id": "interface-craft-hard-to-scan",
+      "query": "This dense scheduling screen is hard to scan. Tidy the spacing, alignment, and hierarchy and show the rendered result.",
+      "should_trigger": true
+    },
+    {
+      "id": "interface-craft-looks-uneven",
+      "query": "This dashboard looks rough and uneven next to the rest of the app. Bring it up to the same baseline.",
+      "should_trigger": true
+    },
+    {
+      "id": "interface-craft-edge-near-miss",
+      "query": "Edges on this built page sit a few pixels off from each other. Find the near misses on the render and align them.",
+      "should_trigger": true
+    },
+    {
+      "expected_skill": "ui-layout",
+      "id": "interface-craft-neg-page-shell",
+      "near_miss": true,
+      "query": "Plan the dashboard shell, region map, and scroll ownership for narrow and wide sizes. Structure only, no styling checks yet.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "design-system",
+      "id": "interface-craft-neg-token-roles",
+      "near_miss": true,
+      "query": "Define the semantic color roles and the radius and text role tokens for our new foundation. Tokens only, no screen work.",
+      "should_trigger": false
+    },
+    {
+      "id": "interface-craft-neg-compose-controls",
+      "query": "Swap the hand-rolled inputs and buttons on this settings form for our shadcn Input, Select, and Button.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "component-compose"
+    },
+    {
+      "expected_skill": "state-coverage",
+      "id": "interface-craft-neg-missing-states",
+      "near_miss": true,
+      "query": "Inventory the missing loading, empty, and error states on this screen. Coverage table only, no restyling.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "content-hierarchy",
+      "id": "interface-craft-neg-copy-priority",
+      "near_miss": true,
+      "query": "Rank what belongs on this page and write its headings and button labels before we touch layout or visuals.",
+      "should_trigger": false
+    },
+    {
+      "id": "interface-craft-neg-ai-tells",
+      "query": "This dashboard reads as AI-generated: an eyebrow over every heading, gradient text, and glowing cards. Remove the slop.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "slop-removal"
+    },
+    {
+      "expected_skill": "site-map",
+      "id": "interface-craft-neg-route-plan",
+      "near_miss": false,
+      "query": "Plan the routes, navigation, and URL state for the app before any screen work.",
+      "should_trigger": false
+    },
+    {
+      "id": "interface-craft-neg-variants",
+      "query": "Give me three structurally different options for this metric card behind a picker so I can compare them.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "ui-variants"
+    }
+  ],
+  "skill_name": "interface-craft"
+}

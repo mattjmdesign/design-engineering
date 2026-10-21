@@ -1,0 +1,78 @@
+{
+  "skill_name": "interface-craft",
+  "evals": [
+    {
+      "id": "existing-docs",
+      "prompt": "Improve this existing documentation homepage. It has a centered heading and decorative animation. Readers need to find a guide for their current task. Keep existing routes.",
+      "assertions": [
+        "Inventories routes and existing content before editing",
+        "Chooses a task-led hierarchy and uses real links",
+        "Keeps the existing look and adds no new visual identity",
+        "Renders and critiques the result at narrow and wide sizes",
+        "Does not fabricate metrics or testimonials"
+      ]
+    },
+    {
+      "id": "audit-only",
+      "prompt": "Audit this screenshot of a dashboard. Do not edit the repository.",
+      "assertions": [
+        "Reports evidence-backed findings without editing",
+        "Separates visible observations from unverified behavior",
+        "Does not claim keyboard or responsive verification from one screenshot"
+      ]
+    },
+    {
+      "id": "states-first-build",
+      "prompt": "Build a settings screen that lists a workspace's API keys with a create button. Real keys must come from the API.",
+      "assertions": [
+        "Writes a states.json with loading, empty, error, and long-content states before styling",
+        "Confirms every state rendered and reviews the contact sheet",
+        "Brings FAIL findings to zero and fixes or justifies each WARN",
+        "Shows no invented keys, names, or counts in any state"
+      ]
+    },
+    {
+      "id": "claims-honesty",
+      "prompt": "Improve the pricing page's spacing and hierarchy, then report what you verified.",
+      "assertions": [
+        "Cites an evidence id for every claim about the rendered page",
+        "Marks keyboard and screen reader behavior as unverified when it was not checked",
+        "Runs the claims check and fixes what it rejects",
+        "Discloses any text that changed or was removed"
+      ]
+    },
+    {
+      "id": "wrapping-button-label",
+      "prompt": "At 390px the Save changes button on our settings page wraps to two lines and is taller than the Cancel button beside it. Fix it.",
+      "assertions": [
+        "Confirms the wrap at 390 from a capture before changing anything",
+        "Fixes it with shorter copy or a layout change such as a wider control, full-width stacked controls, or a labeled menu, and never with a smaller font size",
+        "Keeps the label on one line with white-space: nowrap and sets the height with min-height, so the button grows sideways and never taller",
+        "Uses the same label for the same action on every screen that shows it",
+        "Recaptures at 390 and discloses the changed label text in the report"
+      ]
+    },
+    {
+      "id": "nested-card-radius",
+      "prompt": "A card has a 12px radius and 8px padding, and the button inside it has an 8px radius, so its corners look pinched against the card. The project defines radius tokens of 4, 8, 12, and full. Make the corners consistent.",
+      "assertions": [
+        "Computes the inner radius as the card radius minus the inset, which gives 4, before editing",
+        "Uses the existing 4 radius token or derives the value in CSS from the card radius and the inset, and never types a new literal",
+        "Adds no new radius value to the tokens and creates no one-off such as 10px",
+        "Gives the same component the same radius on the other screens that use it",
+        "Rechecks the render and cites an evidence id for the nested and radius findings"
+      ]
+    },
+    {
+      "id": "shell-and-gutters",
+      "prompt": "Our dashboard and settings pages look slightly different. The rail is 240px wide on one and 256px on the other, and the content gutters are 24px on one and 32px on the other. Make them match.",
+      "assertions": [
+        "Captures both routes, or runs the routes command on both, before editing",
+        "Fixes the cause with one shared shell component and one content column definition for gutters and width cap, not per-page overrides",
+        "Keeps the rail, header, and footer the same size and position on both routes so only the content region changes",
+        "Leaves a route that legitimately uses its own shell, such as sign-in, alone",
+        "Reports the routes evidence and any shell finding that remains"
+      ]
+    }
+  ]
+}

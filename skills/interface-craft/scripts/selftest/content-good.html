@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content Column Clean</title>
+<!-- The clean twin of content.html: the same rail and scroll region, a column with set gutters, equal insets, a width cap, and sections that share one column.
+     Capture at 390 and 1920. -->
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ffffff; color: #1b1f24; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .shell { display: flex; min-height: 100vh; }
+  .rail { width: 64px; flex: none; background: #f1f5f9; padding: 16px 0; text-align: center; }
+  .rail a { color: #0b5fff; }
+  .region { flex: 1; min-width: 0; height: 100vh; overflow-y: auto; }
+  main { max-width: 960px; margin: 0 auto; padding: 16px; display: flex; flex-direction: column; }
+  @media (min-width: 640px) { main { padding: 16px 24px; } }
+  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 16px; }
+  h2 { font-size: 20px; line-height: 1.25; margin: 0 0 8px; }
+  p { margin: 0 0 16px; }
+  .sec { margin-top: 24px; }
+  label { display: block; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .field { display: block; width: 100%; height: 44px; padding: 0 12px; border: 1px solid #6b7280; border-radius: 8px; background: #ffffff; color: #1b1f24; font: inherit; margin-bottom: 16px; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="rail" aria-label="Primary"><a href="#home">Home</a></nav>
+  <div class="region">
+    <main>
+      <h1>Content column</h1>
+      <p>Every spec keeps its history, owners, and open questions in one place, so a reviewer can decide without chasing context across several tools or asking the author again.</p>
+      <h2 class="hero-title" style="align-self: center; font-size: 70px; line-height: 1.2; margin: 24px 0 0; text-align: center; text-wrap: balance">Turn rough ideas into plans</h2>
+      <section class="sec sec-a">
+        <div class="inner">
+          <h2>Project details</h2>
+          <p>Name the project and say who owns it. The owner is notified when a spec changes state and when a reviewer leaves a question.</p>
+          <label for="a1">Project name</label><input id="a1" class="field" type="text" autocomplete="off">
+          <label for="a2">Owner</label><input id="a2" class="field" type="text" autocomplete="off">
+          <label for="a3">Team</label><input id="a3" class="field" type="text" autocomplete="off">
+        </div>
+      </section>
+      <section class="sec sec-b">
+        <div class="inner">
+          <h2>Review settings</h2>
+          <p>Choose how many approvals a spec needs before it can be handed off, and which reviewers are asked first when a question is left open.</p>
+          <label for="b1">Approvals needed</label><input id="b1" class="field" type="text" autocomplete="off">
+          <label for="b2">First reviewer</label><input id="b2" class="field" type="text" autocomplete="off">
+          <label for="b3">Fallback reviewer</label><input id="b3" class="field" type="text" autocomplete="off">
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+</body>
+</html>

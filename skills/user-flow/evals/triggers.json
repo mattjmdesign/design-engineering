@@ -1,0 +1,70 @@
+{
+  "cases": [
+    {
+      "id": "user-flow-pos-01",
+      "query": "Map the user flow for creating a new project from the dashboard button to the detail page, including validation and API failure branches.",
+      "should_trigger": true
+    },
+    {
+      "id": "user-flow-pos-02",
+      "query": "We need an approval flow where a client reviews an AI intake summary: show the approve, request-changes, and auth branches.",
+      "should_trigger": true
+    },
+    {
+      "id": "user-flow-pos-03",
+      "query": "Plan the checkout flow with payment failure recovery, back navigation, and what input survives interruption.",
+      "should_trigger": true
+    },
+    {
+      "id": "user-flow-pos-04",
+      "query": "Trace our onboarding from signup entry to first project, with session expiry, cancellation, and timeout handling.",
+      "should_trigger": true
+    },
+    {
+      "id": "user-flow-pos-05",
+      "query": "Review our invite-a-member flow and define pending versus committed versus outcome-unknown states with reconciliation before retry.",
+      "should_trigger": true
+    },
+    {
+      "id": "user-flow-pos-06",
+      "query": "Map the invite-a-teammate flow step by step, naming the screen and the component each step uses.",
+      "should_trigger": true
+    },
+    {
+      "expected_skill": "state-coverage",
+      "id": "user-flow-neg-01",
+      "near_miss": true,
+      "query": "Audit our checkout screen for missing timeout, offline, and retry states before pilot: list trigger, recovery, and priority for each gap.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "state-coverage",
+      "id": "user-flow-neg-02",
+      "near_miss": true,
+      "query": "Our project creation times out sometimes: find the missing loading, error, and unknown-outcome states across the live screens.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "state-coverage",
+      "id": "user-flow-neg-03",
+      "near_miss": true,
+      "query": "Check the invite flow for uncovered permission, conflict, and partial-success states and tell me what copy and recovery each needs.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "site-map",
+      "id": "user-flow-neg-04",
+      "near_miss": false,
+      "query": "Plan our app navigation and URL structure for /projects and /team with access rules and deep-link behavior.",
+      "should_trigger": false
+    },
+    {
+      "id": "user-flow-neg-05",
+      "query": "Build the assignee combobox from our shadcn Popover and Command instead of a custom widget.",
+      "should_trigger": false,
+      "near_miss": false,
+      "expected_skill": "component-compose"
+    }
+  ],
+  "skill_name": "user-flow"
+}

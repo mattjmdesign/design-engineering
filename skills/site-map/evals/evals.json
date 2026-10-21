@@ -1,0 +1,41 @@
+{
+  "skill_name": "site-map",
+  "evals": [
+    {
+      "id": "saas-ia",
+      "prompt": "Plan the sitemap for a SaaS client portal with marketing pages, login, dashboard, projects, team, billing, and admin users.",
+      "assertions": [
+        "Includes public and authenticated areas",
+        "Includes admin boundary",
+        "Recommends navigation model",
+        "Uses predictable route hierarchy"
+      ]
+    },
+    {
+      "id": "simple-site",
+      "prompt": "I need a site map for a small product website with docs and pricing.",
+      "assertions": [
+        "Does not overcomplicate app routes",
+        "Includes route conventions",
+        "Provides navigation guidance"
+      ]
+    },
+    {
+      "id": "filters-url",
+      "prompt": "Our app has a project list with status and sort filters. Where should those live in the route plan?",
+      "assertions": [
+        "Uses search params for filters",
+        "Explains route vs state distinction",
+        "Avoids encoding auth/session in URL"
+      ]
+    },
+    {
+      "id": "no-session-in-url",
+      "prompt": "Plan routes for a dashboard app with role-based views.",
+      "assertions": [
+        "Distinguishes route organization from server-enforced access checks",
+        "Does not encode session or role state in URLs"
+      ]
+    }
+  ]
+}

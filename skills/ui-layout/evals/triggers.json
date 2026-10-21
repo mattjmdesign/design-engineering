@@ -1,0 +1,19 @@
+{
+  "skill_name": "ui-layout",
+  "cases": [
+    {"id": "ui-layout-pos-dashboard-center", "query": "Our dashboard has the sidebar and top bar, but I don't know how to lay out the center area. Propose a layout on a grid.", "should_trigger": true},
+    {"id": "ui-layout-pos-shared-grid", "query": "Blocks on the reports page don't sit on a shared grid: the chart card starts a few pixels inside the table's edge. Fix the layout grid.", "should_trigger": true},
+    {"id": "ui-layout-pos-cap-drift", "query": "Three pages use different max-w values and every section sets its own px-6. Make the width caps and gutters consistent.", "should_trigger": true},
+    {"id": "ui-layout-pos-row-internals", "query": "The avatar, name, role, and menu in our members list sit at different x positions per row. Lay out the row internals.", "should_trigger": true},
+    {"id": "ui-layout-pos-settings", "query": "Lay out a settings page with workspace, notifications, and a danger zone, from wide desktop down to 390px.", "should_trigger": true},
+    {"id": "ui-layout-pos-inbox", "query": "Plan a list and detail inbox layout where each pane scrolls on its own and it collapses to one pane on phones.", "should_trigger": true},
+    {"id": "ui-layout-pos-shells", "query": "Plan the dashboard and auth shells: regions in reading order, width limits, and which region scrolls at narrow and wide sizes.", "should_trigger": true},
+    {"id": "ui-layout-pos-orphan-card", "query": "Inside the sidebar shell the four figure cards wrap into three and one at 1100px. Fix the column logic.", "should_trigger": true},
+    {"id": "ui-layout-neg-hierarchy", "query": "Before we lay anything out, rank what the dashboard should say first and write its headings and labels.", "should_trigger": false, "expected_skill": "content-hierarchy", "near_miss": true},
+    {"id": "ui-layout-neg-craft", "query": "The layout is fine, but heading sizes, button heights, and corner radii vary across screens. Bring them to one baseline with rendered checks.", "should_trigger": false, "expected_skill": "interface-craft", "near_miss": true},
+    {"id": "ui-layout-neg-sitemap", "query": "Decide which pages the app needs, which of them share the dashboard shell, and how the sidebar navigation is grouped.", "should_trigger": false, "expected_skill": "site-map", "near_miss": true},
+    {"id": "ui-layout-neg-representation", "query": "We have weekly signups by channel. Should that be a chart or a table on the dashboard?", "should_trigger": false, "expected_skill": "ui-representation", "near_miss": true},
+    {"id": "ui-layout-neg-variants", "query": "Show me three alternative layouts for the dashboard center behind a picker so I can flip between them.", "should_trigger": false, "expected_skill": "ui-variants", "near_miss": true},
+    {"id": "ui-layout-neg-tokens", "query": "Define semantic spacing and radius tokens for our new foundation, with theme pairs.", "should_trigger": false, "expected_skill": "design-system", "near_miss": false}
+  ]
+}

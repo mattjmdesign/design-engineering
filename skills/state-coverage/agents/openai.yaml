@@ -1,0 +1,8 @@
+interface:
+  display_name: "State coverage"
+  short_description: "Design loading, empty, error, and recovery states"
+  brand_color: "#B45309"
+  default_prompt: "Use $state-coverage to audit the states and recovery paths this interface needs."
+
+policy:
+  allow_implicit_invocation: true

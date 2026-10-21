@@ -1,0 +1,20 @@
+{
+  "name": "design-engineering",
+  "owner": {
+    "name": "Matt Mitchell",
+    "url": "https://github.com/mattjmdesign"
+  },
+  "metadata": {
+    "description": "Portable design engineering skills for turning product intent into clear interfaces, measured options, and verified UI.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "design-engineering",
+      "source": "./",
+      "description": "Portable design engineering skills for turning product intent into clear interfaces, measured options, and verified UI.",
+      "category": "Productivity",
+      "homepage": "https://github.com/mattjmdesign/design-engineering"
+    }
+  ]
+}

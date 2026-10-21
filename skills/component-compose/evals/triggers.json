@@ -1,0 +1,18 @@
+{
+  "skill_name": "component-compose",
+  "cases": [
+    {"id": "component-compose-pos-picker", "query": "Add an assignee picker to each task row using the shadcn and Base UI components we already have.", "should_trigger": true},
+    {"id": "component-compose-pos-hand-rolled", "query": "Agents keep hand-rolling buttons and cards in feature code instead of using components/ui. Rebuild this page from the system.", "should_trigger": true},
+    {"id": "component-compose-pos-restyle", "query": "Make the Archive button red and smaller on the project header without forking the Button component.", "should_trigger": true},
+    {"id": "component-compose-pos-spec", "query": "Spec a ProjectStatusBadge component with props, variants, and keyboard behavior before we build it.", "should_trigger": true},
+    {"id": "component-compose-pos-real-gap", "query": "We need a Gantt-style timeline and nothing in ui/ fits. Build it properly and say why it had to be custom.", "should_trigger": true},
+    {"id": "component-compose-pos-audit-changes", "query": "Check the files I changed for raw elements and direct Base UI imports, and report what was reused versus created.", "should_trigger": true},
+    {"id": "component-compose-pos-inventory", "query": "Before building the filter bar, inventory our component library and tell me what to reuse.", "should_trigger": true},
+    {"id": "component-compose-neg-library-audit", "query": "Audit the whole component library for duplicates and drift, and plan deprecations with prop mappings.", "should_trigger": false, "expected_skill": "design-system", "near_miss": true},
+    {"id": "component-compose-neg-states", "query": "Our combobox shows nothing for empty results, failed loads, or missing permission. Find the gaps and define what each state shows.", "should_trigger": false, "expected_skill": "state-coverage", "near_miss": true},
+    {"id": "component-compose-neg-craft", "query": "The buttons we built look uneven: heights and padding differ between rows. Fix the spacing and check the render.", "should_trigger": false, "expected_skill": "interface-craft", "near_miss": true},
+    {"id": "component-compose-neg-variants", "query": "Give me three different options for the task row component so I can choose between them.", "should_trigger": false, "expected_skill": "ui-variants", "near_miss": true},
+    {"id": "component-compose-neg-representation", "query": "Should the vendor data be a table or cards, given buyers compare price and lead time?", "should_trigger": false, "expected_skill": "ui-representation", "near_miss": true},
+    {"id": "component-compose-neg-flow", "query": "Map the checkout sequence from cart to confirmation with failure and back-navigation branches.", "should_trigger": false, "expected_skill": "user-flow", "near_miss": false}
+  ]
+}

@@ -1,0 +1,639 @@
+{
+  "schema": 1,
+  "about": "Every threshold ui_measure.py applies. \"tiers\" holds one tier per rule id. \"subtiers\" holds rule:sub overrides for one kind of finding inside a rule. Change a number here or override it per project in .ui-evidence/config.json under \"overrides\" (same shape). A profile deep-merges over this file, then the project overrides deep-merge over the profile.",
+  "capture": {
+    "widths": [
+      390,
+      768,
+      1280
+    ],
+    "heights": {
+      "narrow_max_width": 480,
+      "narrow": 844,
+      "mid_max_width": 900,
+      "mid": 1024,
+      "wide": 800
+    },
+    "dpr": 1,
+    "themes": [
+      "light"
+    ],
+    "full_page_cap_px": 2400,
+    "max_nodes": 5000,
+    "max_focus_stops": 40,
+    "load_timeout_s": 10,
+    "ready_timeout_s": 8,
+    "expect_timeout_s": 3,
+    "settle_max_ms": 1500,
+    "settle_quiet_ms": 100,
+    "network_quiet_ms": 120,
+    "long_request_s": 3,
+    "step_settle_ms": 250,
+    "text_seq_max": 400,
+    "text_seq_chars": 160,
+    "state_matrix_budget_s": 60,
+    "mobile_max_width": 820,
+    "max_ax_controls": 300,
+    "touch": false,
+    "squint_width_px": 120,
+    "squint_blur_px": 2,
+    "scrollbars": "hidden",
+    "scrollbar_emulated_px": 15,
+    "ignore_selector": "[data-ui-measure-ignore],[data-state-switcher],.tsqd-parent-container,nextjs-portal,vite-error-overlay,astro-dev-toolbar"
+  },
+  "sheet": {
+    "scale": 0.4,
+    "max_cell_height_px": 900,
+    "columns_gap_px": 12
+  },
+  "compare": {
+    "anchor_move_px": 1,
+    "scrollbar_match_px": 2,
+    "max_listed": 12
+  },
+  "routes": {
+    "widths": [
+      1280,
+      390
+    ],
+    "themes": [
+      "light"
+    ],
+    "max_routes": 40
+  },
+  "tiers": {
+    "viewport.truth": "FAIL",
+    "viewport.meta": "INFO",
+    "theme.truth": "WARN",
+    "state.confirmed": "FAIL",
+    "console.errors": "FAIL",
+    "network.failed": "WARN",
+    "overflow.page": "FAIL",
+    "overflow.clip": "WARN",
+    "overlap.text": "WARN",
+    "contrast.text": "FAIL",
+    "contrast.ui": "FAIL",
+    "target.size": "FAIL",
+    "focus.visible": "FAIL",
+    "focus.order": "WARN",
+    "a11y.names": "FAIL",
+    "a11y.clickable": "FAIL",
+    "a11y.structure": "WARN",
+    "grid.spacing": "WARN",
+    "grid.size": "WARN",
+    "component.conformance": "WARN",
+    "scale.spacing": "WARN",
+    "type.scale": "WARN",
+    "type.line_height": "WARN",
+    "type.measure": "WARN",
+    "type.numeric": "WARN",
+    "align.near_miss": "WARN",
+    "control.height": "WARN",
+    "rhythm.group_ratio": "WARN",
+    "rhythm.heading": "WARN",
+    "shape.radius": "WARN",
+    "shape.depth": "WARN",
+    "color.budget": "WARN",
+    "content.count": "WARN",
+    "media.images": "WARN",
+    "font.fallback": "WARN",
+    "control.wrap": "WARN",
+    "type.wrap": "WARN",
+    "shape.nested": "WARN",
+    "type.role": "WARN",
+    "layout.content": "WARN",
+    "shell.consistency": "WARN",
+    "slop.eyebrow": "WARN",
+    "slop.restates_heading": "INFO",
+    "slop.repeated_text": "WARN",
+    "slop.generic_action": "WARN",
+    "slop.empty_state": "WARN",
+    "slop.nested_cards": "WARN",
+    "slop.gradient_text": "WARN",
+    "slop.glow": "WARN",
+    "slop.side_stripe": "WARN",
+    "slop.badge_density": "WARN",
+    "slop.dash": "INFO",
+    "allow.reason": "WARN"
+  },
+  "subtiers": {
+    "theme.truth:info": "INFO",
+    "console.errors:expected": "INFO",
+    "console.errors:warnings": "INFO",
+    "network.failed:expected": "INFO",
+    "network.failed:blocked": "INFO",
+    "overflow.page:clipped": "INFO",
+    "overflow.page:ignored": "INFO",
+    "overflow.clip:ellipsis": "INFO",
+    "contrast.text:unknown": "WARN",
+    "target.size:warn": "WARN",
+    "target.size:occluded": "WARN",
+    "target.size:extended": "INFO",
+    "focus.visible:subtle": "WARN",
+    "focus.visible:contrast": "WARN",
+    "a11y.names:placeholder": "WARN",
+    "a11y.clickable:tabindex": "WARN",
+    "a11y.clickable:cursor": "WARN",
+    "a11y.structure:img-alt": "FAIL",
+    "a11y.structure:img-alt-quality": "WARN",
+    "media.images:broken": "FAIL",
+    "media.images:dims": "INFO",
+    "media.images:oversize": "INFO",
+    "media.images:blocked": "INFO",
+    "font.fallback:chain": "INFO",
+    "font.fallback:blocked": "INFO",
+    "viewport.truth:scrollbars": "INFO",
+    "target.size:spaced": "INFO",
+    "a11y.clickable:wrapper": "INFO",
+    "a11y.clickable:handler": "INFO",
+    "overflow.page:region": "WARN",
+    "control.wrap:button": "FAIL",
+    "control.wrap:nav": "WARN",
+    "control.wrap:menu": "WARN",
+    "control.wrap:tab": "WARN",
+    "control.wrap:badge": "WARN",
+    "type.wrap:text": "INFO",
+    "shape.radius:untokened": "WARN",
+    "type.role:ambiguous": "INFO",
+    "layout.content:gutter": "WARN",
+    "layout.content:asymmetry": "WARN",
+    "layout.content:cap": "INFO",
+    "layout.content:cap_text": "WARN",
+    "layout.content:columns": "WARN",
+    "shell.consistency:missing": "WARN",
+    "shell.consistency:geometry": "WARN",
+    "shell.consistency:nav": "WARN",
+    "shell.consistency:content": "WARN",
+    "shell.consistency:title": "WARN",
+    "shell.consistency:title_top": "INFO",
+    "shell.consistency:cap": "INFO",
+    "shell.consistency:aside": "INFO",
+    "shell.consistency:edge": "INFO",
+    "align.near_miss:right": "WARN",
+    "align.near_miss:top": "WARN"
+  },
+  "thresholds": {
+    "viewport.truth": {
+      "width_tolerance_px": 0
+    },
+    "state.confirmed": {},
+    "console.errors": {},
+    "network.failed": {},
+    "viewport.meta": {
+      "check_at_or_below_px": 820
+    },
+    "theme.truth": {},
+    "overflow.page": {
+      "tolerance_px": 1,
+      "max_culprits": 8,
+      "region_min_width": 0.6,
+      "region_min_height": 0.5
+    },
+    "overflow.clip": {
+      "min_px": 2
+    },
+    "overlap.text": {
+      "min_area_px": 12,
+      "min_fraction": 0.2,
+      "max_pairs": 12
+    },
+    "contrast.text": {
+      "normal": 4.5,
+      "large": 3.0,
+      "large_px": 24,
+      "large_bold_px": 18.66,
+      "bold_weight": 700
+    },
+    "contrast.ui": {
+      "min": 3.0
+    },
+    "target.size": {
+      "fail_px": 24,
+      "warn_px": 44,
+      "warn_at_or_below_width": 820,
+      "occluded_min_hits": 3
+    },
+    "focus.visible": {
+      "ring_contrast_min": 3.0,
+      "subtle_change_min": 1.5
+    },
+    "focus.order": {
+      "back_jump_px": 40,
+      "row_px": 12,
+      "left_jump_px": 24,
+      "max_reports": 6
+    },
+    "a11y.names": {},
+    "a11y.clickable": {},
+    "a11y.structure": {
+      "max_h1": 1
+    },
+    "grid.spacing": {
+      "base": 4,
+      "layout_base": 8,
+      "tolerance": 0.5,
+      "hairline_px": 1,
+      "layout_min_px": 16,
+      "layout_tags": [
+        "main",
+        "header",
+        "footer",
+        "section",
+        "article",
+        "aside",
+        "body"
+      ],
+      "layout_min_width_fraction": 0.5,
+      "layout_min_height_px": 160,
+      "max_examples": 5,
+      "off_base_share_note": 0.4
+    },
+    "grid.size": {
+      "base": 4,
+      "tolerance": 0.5,
+      "icon_max_px": 64,
+      "max_examples": 5
+    },
+    "component.conformance": {
+      "min_instances": 2,
+      "max_instances": 200,
+      "tolerance": 0.5,
+      "min_box_px": 16,
+      "max_groups": 8,
+      "child_offsets": false
+    },
+    "scale.spacing": {
+      "max_values": 8,
+      "round_to": 0.5
+    },
+    "type.scale": {
+      "max_sizes": 6,
+      "max_weights": 3,
+      "min_adjacent_ratio": 1.08,
+      "min_px": 12,
+      "round_to": 0.1
+    },
+    "type.line_height": {
+      "min": 1.4,
+      "max": 1.65,
+      "body_min_chars": 60,
+      "body_min_px": 12,
+      "body_max_px": 22,
+      "normal_ratio": 1.2
+    },
+    "type.measure": {
+      "min_ch": 45,
+      "min_ch_narrow": 30,
+      "narrow_width": 480,
+      "max_ch": 80,
+      "body_min_px": 12,
+      "body_max_px": 22,
+      "min_lines_upper": 2,
+      "min_lines_lower": 3
+    },
+    "type.numeric": {
+      "min_cells": 3,
+      "numeric_share": 0.6
+    },
+    "align.near_miss": {
+      "min_px": 0.5,
+      "max_px": 8,
+      "max_gap_px": 320,
+      "min_overlap_px": 24,
+      "min_text_chars": 3,
+      "max_pairs": 40,
+      "edges": [
+        "left",
+        "right",
+        "top"
+      ],
+      "right_max_gap_px": 64,
+      "top_max_gap_px": 64,
+      "lca_levels": 3
+    },
+    "control.height": {
+      "tolerance": 0.5,
+      "max_distinct": 3,
+      "row_overlap": 0.6,
+      "lca_levels": 3,
+      "min_px": 20
+    },
+    "rhythm.group_ratio": {
+      "min_ratio": 1.5,
+      "min_groups": 2
+    },
+    "rhythm.heading": {
+      "min_ratio": 1.5,
+      "max_distance_px": 600
+    },
+    "shape.radius": {
+      "max_distinct": 4,
+      "round_to": 0.5,
+      "untokened_min_tokens": 2,
+      "nest_tolerance_px": 1,
+      "max_examples": 5,
+      "pill_tolerance_px": 0.5,
+      "token_match_px": 0.5,
+      "full_token_min_px": 900
+    },
+    "shape.depth": {
+      "max_shadows": 4,
+      "max_z_values": 6
+    },
+    "color.budget": {
+      "max_text_colors": 5,
+      "max_non_status_hues": 2,
+      "chroma_min": 0.04,
+      "hue_cluster_deg": 30,
+      "status_hue_ranges": [
+        [
+          10,
+          40
+        ],
+        [
+          40,
+          110
+        ],
+        [
+          110,
+          170
+        ]
+      ],
+      "text_quantum": 8
+    },
+    "content.count": {
+      "close_ratio": 0.25,
+      "close_abs": 3,
+      "min_collection": 3
+    },
+    "media.images": {
+      "distort_tolerance": 0.02,
+      "upscale_tolerance": 0.05,
+      "oversize_factor": 3
+    },
+    "font.fallback": {},
+    "control.wrap": {
+      "min_lines": 2,
+      "max_label_chars": 48,
+      "badge_max_chars": 32,
+      "badge_max_font_px": 14,
+      "link_min_padding_px": 4,
+      "chrome_min_alpha": 0.05,
+      "line_merge_fraction": 0.5,
+      "max_examples": 5,
+      "border_min_px": 0.5,
+      "stack_tolerance_px": 1
+    },
+    "type.wrap": {
+      "short_last_fraction": 0.3,
+      "min_lines": 2,
+      "heading_max_lines": 6,
+      "text_max_lines": 3,
+      "max_examples": 5,
+      "line_merge_fraction": 0.5,
+      "stack_tolerance_px": 1
+    },
+    "shape.nested": {
+      "min_diff_px": 2,
+      "max_axis_gap_px": 2,
+      "flush_px": 0.5,
+      "min_box_px": 8,
+      "fill_min_alpha": 0.05,
+      "edge_min_delta": 6,
+      "max_examples": 5,
+      "border_min_px": 0.5,
+      "edge_tolerance_px": 0.5,
+      "pill_tolerance_px": 0.5
+    },
+    "type.role": {
+      "size_diff_px": 1,
+      "dominant_share": 0.6,
+      "ambiguous_max_each": 2,
+      "component_min_siblings": 3,
+      "component_max_outliers": 1,
+      "neutral_contrast_tiers": [
+        12,
+        7,
+        4.5
+      ],
+      "chroma_min": 0.04,
+      "hue_step_deg": 30,
+      "max_examples": 5
+    },
+    "layout.content": {
+      "gutter_px": [
+        [
+          0,
+          16
+        ],
+        [
+          640,
+          20
+        ],
+        [
+          1024,
+          24
+        ]
+      ],
+      "asymmetry_px": 8,
+      "asymmetry_min_fill": 0.5,
+      "cap_min_view_width": 1600,
+      "cap_px": 1440,
+      "cap_text_px": 960,
+      "columns_min_px": 1,
+      "columns_max_px": 64,
+      "full_bleed_tolerance_px": 1,
+      "max_depth": 8,
+      "sidebar_min_px": 24,
+      "sidebar_max_share": 0.6,
+      "fill_min_alpha": 0.05,
+      "edge_min_delta": 6,
+      "card_min_width": 64,
+      "card_min_height": 24,
+      "prose_min_chars": 80,
+      "text_min_share": 0.2,
+      "media_min_area": 20000,
+      "media_min_width": 160,
+      "max_examples": 5,
+      "border_min_px": 0.5,
+      "sidebar_overlap_share": 0.4,
+      "adjacent_tolerance_px": 2,
+      "gutter_overshoot_px": 0.5
+    },
+    "shell.consistency": {
+      "tolerance_px": 1,
+      "font_tolerance_px": 0.5,
+      "color_tolerance": 2,
+      "edge_info_px": 64,
+      "cap_share": 0.1,
+      "min_routes": 2,
+      "min_item_px": 8,
+      "max_listed_routes": 3
+    },
+    "slop.eyebrow": {
+      "max_chars": 34,
+      "min_chars": 2,
+      "max_font_px": 14,
+      "min_tracking_em": 0.06,
+      "heading_min_px": 20,
+      "heading_max_level": 4,
+      "max_gap_px": 32,
+      "min_overlap_share": 0.5,
+      "max_examples": 5
+    },
+    "slop.restates_heading": {
+      "heading_max_level": 4,
+      "max_gap_px": 32,
+      "min_overlap_share": 0.4,
+      "min_shared_words": 2,
+      "min_shared_share": 0.75,
+      "max_new_words": 3,
+      "min_chars": 10,
+      "max_examples": 5
+    },
+    "slop.repeated_text": {
+      "min_count": 3,
+      "min_chars": 12,
+      "min_words": 3,
+      "max_examples": 5,
+      "max_scope_texts": 12
+    },
+    "slop.generic_action": {
+      "labels": [
+        "submit",
+        "click here",
+        "click",
+        "here",
+        "learn more",
+        "read more",
+        "see more",
+        "view more",
+        "more",
+        "more info",
+        "more details",
+        "get started",
+        "ok",
+        "okay"
+      ],
+      "max_examples": 5
+    },
+    "slop.empty_state": {
+      "max_words": 8,
+      "max_region_words": 30,
+      "max_levels": 3,
+      "max_examples": 5,
+      "min_message_share": 0.2
+    },
+    "slop.nested_cards": {
+      "min_radius_px": 4,
+      "min_width_px": 120,
+      "min_height_px": 48,
+      "min_text_chars": 40,
+      "alpha_min": 0.05,
+      "delta_min": 6,
+      "border_min_px": 0.5,
+      "max_examples": 5
+    },
+    "slop.gradient_text": {
+      "max_examples": 5
+    },
+    "slop.glow": {
+      "min_blur_px": 12,
+      "min_alpha": 0.15,
+      "min_saturation": 0.4,
+      "max_examples": 5
+    },
+    "slop.side_stripe": {
+      "min_width_px": 3,
+      "max_other_share": 0.34,
+      "min_box_width_px": 120,
+      "min_box_height_px": 24,
+      "chroma_min": 0.04,
+      "min_alpha": 0.5,
+      "top_min_radius_px": 4,
+      "max_examples": 5
+    },
+    "slop.badge_density": {
+      "min_per_container": 3,
+      "max_chars": 24,
+      "max_words": 3,
+      "max_height_px": 32,
+      "max_width_px": 160,
+      "max_font_px": 14,
+      "min_radius_px": 4,
+      "alpha_min": 0.05,
+      "border_min_px": 0.5,
+      "max_examples": 5
+    },
+    "slop.dash": {
+      "max_examples": 5
+    },
+    "allow.reason": {
+      "min_reason_words": 2
+    }
+  },
+  "profiles": {
+    "product": {},
+    "dense": {
+      "thresholds": {
+        "target.size": {
+          "warn_px": 0
+        },
+        "type.scale": {
+          "min_px": 11
+        },
+        "type.line_height": {
+          "min": 1.3,
+          "max": 1.6
+        },
+        "control.height": {
+          "max_distinct": 4
+        },
+        "scale.spacing": {
+          "max_values": 10
+        }
+      }
+    },
+    "marketing": {
+      "thresholds": {
+        "type.scale": {
+          "max_sizes": 8
+        },
+        "color.budget": {
+          "max_non_status_hues": 3
+        },
+        "shape.radius": {
+          "max_distinct": 5
+        },
+        "scale.spacing": {
+          "max_values": 10
+        }
+      },
+      "tiers": {
+        "slop.eyebrow": "INFO",
+        "slop.gradient_text": "INFO",
+        "slop.glow": "INFO",
+        "slop.badge_density": "INFO"
+      }
+    },
+    "mobile": {
+      "thresholds": {
+        "target.size": {
+          "warn_at_or_below_width": 4096
+        },
+        "type.measure": {
+          "min_ch": 30,
+          "min_ch_narrow": 30
+        }
+      },
+      "capture": {
+        "widths": [
+          360,
+          390,
+          430
+        ],
+        "touch": true
+      }
+    }
+  }
+}

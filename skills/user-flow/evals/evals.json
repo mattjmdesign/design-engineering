@@ -1,0 +1,41 @@
+{
+  "skill_name": "user-flow",
+  "evals": [
+    {
+      "id": "project-create",
+      "prompt": "Map the user flow for creating a new project from the dashboard.",
+      "assertions": [
+        "Includes happy path",
+        "Includes validation/API/cancel branches",
+        "Includes success destination",
+        "Includes UI states"
+      ]
+    },
+    {
+      "id": "approval-flow",
+      "prompt": "We need an approval flow where a client reviews an AI-generated intake summary.",
+      "assertions": [
+        "Includes role/user",
+        "Includes approve and change branches",
+        "Includes auth/data touchpoints"
+      ]
+    },
+    {
+      "id": "checkout",
+      "prompt": "Plan the checkout flow including payment failure and back navigation.",
+      "assertions": [
+        "Includes payment failure recovery",
+        "Includes back/cancel behavior",
+        "Includes mutation states"
+      ]
+    },
+    {
+      "id": "no-happy-path-only",
+      "prompt": "Map the invite-a-member flow.",
+      "assertions": [
+        "Includes failure branches with recovery",
+        "Does not show only the happy path"
+      ]
+    }
+  ]
+}

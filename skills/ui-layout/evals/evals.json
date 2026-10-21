@@ -1,0 +1,50 @@
+{
+  "skill_name": "ui-layout",
+  "evals": [
+    {
+      "id": "dashboard-center",
+      "prompt": "Our app already has a shadcn sidebar shell with a top bar. Lay out the dashboard's content area for project managers: late projects, four headline figures, a trend of completed tasks, and recent activity.",
+      "assertions": [
+        "Looks for the existing shell, width caps, and gutters before proposing values, or says which it could not find",
+        "Names a dashboard template and at least one alternative with a reason it lost",
+        "Writes the grid as base, gutters, cap, key lines, and template, and says where it is recorded (DESIGN.md or AGENTS.md)",
+        "Puts the cap and gutters on one container and gives no section its own horizontal padding",
+        "Sizes the figure row by container width, not viewport breakpoints, and avoids a lone figure on a second row",
+        "States what changes at 768 and 390, and either cites a capture or marks widths unverified instead of estimating pixel widths"
+      ]
+    },
+    {
+      "id": "list-row-internals",
+      "prompt": "In our members list the avatar, name, role, and the row menu sit at different x positions from row to row, because each row is a flex container with its own content widths. Fix the row layout.",
+      "assertions": [
+        "Gives the leading avatar slot and the trailing role or menu slots fixed widths, with a flexible middle that can shrink (minmax(0, 1fr) or min-width: 0)",
+        "Defines the tracks once for every row (a shared grid template or subgrid) rather than per row",
+        "Keeps slot sizes and gaps on the 4px grid",
+        "Keeps an empty slot's width when a row has no avatar, so the text stays on one line",
+        "Verifies with a capture or the xray command, or says the alignment is unverified"
+      ]
+    },
+    {
+      "id": "settings-groups",
+      "prompt": "Lay out a settings page with three groups: workspace details, notifications, and a danger zone. It must work from a wide desktop down to 390px.",
+      "assertions": [
+        "Puts each group's heading in a left column and its fields in a right column on wide screens, and stacks them in one column when narrow",
+        "Caps the fields (about 560 to 720px) so inputs do not stretch across a wide screen",
+        "Places the danger zone last, separated, with each action naming its consequence",
+        "Gives a group a description only when it says something the heading cannot, rather than a description under every heading",
+        "Saves per group or with a bar that appears on change, rather than one save far from its fields"
+      ]
+    },
+    {
+      "id": "cap-and-gutter-drift",
+      "prompt": "Our pages use max-w-6xl on two pages, max-w-7xl on three, and no cap on settings, and every section sets its own px-6. Make widths and gutters consistent.",
+      "assertions": [
+        "Counts the existing caps by page type and keeps the most common value per type instead of inventing a new one",
+        "Moves the cap and gutters to one shared container and removes the per-section padding",
+        "Gives settings a narrower cap suited to forms rather than the data cap",
+        "Records the result once in DESIGN.md or AGENTS.md",
+        "Verifies across routes with the interface-craft capture or routes command, or marks it unverified"
+      ]
+    }
+  ]
+}

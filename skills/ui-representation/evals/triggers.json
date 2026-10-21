@@ -1,0 +1,19 @@
+{
+  "skill_name": "ui-representation",
+  "cases": [
+    {"id": "ui-representation-pos-call-notes", "query": "Here are my notes from the client call. What should the approvals screen actually show, and which of our components build it?", "should_trigger": true},
+    {"id": "ui-representation-pos-feedback-chart", "query": "Client feedback says managers keep missing late projects and asks for a pie chart on the dashboard. Figure out what we should build.", "should_trigger": true},
+    {"id": "ui-representation-pos-vendor-data", "query": "I have a CSV of vendors with price, lead time, rating, and region. How should we show this so buyers can pick one?", "should_trigger": true},
+    {"id": "ui-representation-pos-outline", "query": "Turn this outline for the onboarding page into UI: which patterns, which existing components, and where it fits in the app.", "should_trigger": true},
+    {"id": "ui-representation-pos-fr-nfr", "query": "Write FR and NFR requirements with acceptance criteria for project renaming: editors can rename, viewers cannot.", "should_trigger": true},
+    {"id": "ui-representation-pos-api-sample", "query": "Here's a sample API response for invoices. Should this be a table, cards, or a list, and what do we already have that builds it?", "should_trigger": true},
+    {"id": "ui-representation-pos-one-liner", "query": "Product sent a one-line request: show team capacity somewhere. Interpret it and propose how it should appear in the app.", "should_trigger": true},
+    {"id": "ui-representation-neg-intent", "query": "The client wants an AI portal and we don't know who uses it or why. Help me pin down the user, the outcome, and the smallest useful scope.", "should_trigger": false, "expected_skill": "product-intent", "near_miss": true},
+    {"id": "ui-representation-neg-hierarchy", "query": "This settings page has too much competing for attention. Rank what goes first and rewrite the headings and button labels.", "should_trigger": false, "expected_skill": "content-hierarchy", "near_miss": true},
+    {"id": "ui-representation-neg-layout", "query": "We already know the dashboard shows a late-projects list, four figures, and a chart. Lay out the content area on our grid with gutters and a width cap.", "should_trigger": false, "expected_skill": "ui-layout", "near_miss": true},
+    {"id": "ui-representation-neg-compose", "query": "Build the vendor comparison table from our shadcn components and report what you reused versus created.", "should_trigger": false, "expected_skill": "component-compose", "near_miss": true},
+    {"id": "ui-representation-neg-variants", "query": "Give me three different options for the late-projects strip so I can flip between them in the page.", "should_trigger": false, "expected_skill": "ui-variants", "near_miss": true},
+    {"id": "ui-representation-neg-flow", "query": "Map the invoice approval flow from submission to payment, including rejection and timeout branches.", "should_trigger": false, "expected_skill": "user-flow", "near_miss": false},
+    {"id": "ui-representation-neg-sitemap", "query": "Plan which pages the admin area needs and how its navigation is grouped.", "should_trigger": false, "expected_skill": "site-map", "near_miss": false}
+  ]
+}

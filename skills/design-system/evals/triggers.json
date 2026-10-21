@@ -1,0 +1,127 @@
+{
+  "cases": [
+    {
+      "id": "design-system-new-foundation",
+      "query": "Set up the initial token foundation for our new dashboard: semantic color roles, theme pairs, and type and spacing scales.",
+      "should_trigger": true
+    },
+    {
+      "id": "design-system-multiplying-colors",
+      "query": "Our colors and spacing are multiplying across screens. Give them a shared home with clear roles.",
+      "should_trigger": true
+    },
+    {
+      "id": "design-system-theme-pairs",
+      "query": "Define the surface, action, border, focus, and status roles with verified pairs for the themes we actually ship.",
+      "should_trigger": true
+    },
+    {
+      "id": "design-system-extend-tokens",
+      "query": "Extend our token system with the missing status pairs and show one primitive and one screen consuming them.",
+      "should_trigger": true
+    },
+    {
+      "id": "design-system-figma-to-code",
+      "query": "Plan a token foundation that maps cleanly from Figma variables to code without duplicating the system.",
+      "should_trigger": true
+    },
+    {
+      "id": "design-system-new-project",
+      "query": "We're starting a new project with no UI yet. Create the initial token foundation with semantic roles.",
+      "should_trigger": true
+    },
+    {
+      "id": "design-system-token-drift",
+      "query": "Audit our existing tokens and components for drift and propose a migration that keeps consumers working.",
+      "should_trigger": true
+    },
+    {
+      "id": "design-system-dedupe-buttons",
+      "query": "We have three button variants drifting apart. Deduplicate them against the existing system with evidence.",
+      "should_trigger": true
+    },
+    {
+      "id": "design-system-theme-focus-gaps",
+      "query": "Our dark theme and focus states diverged from the spec. Review the gaps without replacing the whole system.",
+      "should_trigger": true
+    },
+    {
+      "id": "design-system-drift-audit",
+      "query": "Audit this codebase for UI drift across tokens, components, and layouts before we add another feature.",
+      "should_trigger": true
+    },
+    {
+      "id": "design-system-dedupe-dialogs",
+      "query": "We have two dialog wrappers and a LegacyCard duplicating Card. Consolidate them with a migration path.",
+      "should_trigger": true
+    },
+    {
+      "id": "design-system-theme-fixes",
+      "query": "Fix missing dark-theme pairs and focus gaps across our primitives with evidence from real consumers.",
+      "should_trigger": true
+    },
+    {
+      "id": "design-system-design-md",
+      "query": "Update our DESIGN.md to capture the durable conventions from the authorized token change.",
+      "should_trigger": true
+    },
+    {
+      "id": "design-system-priority",
+      "query": "Prioritize system fixes by user consequence. The broken keyboard path matters more than two off colors.",
+      "should_trigger": true
+    },
+    {
+      "id": "design-system-guard-checker",
+      "query": "New components keep shipping raw hex colors and off-scale spacing when nobody is watching. Run our design check, or add one that fails only on new violations.",
+      "should_trigger": true
+    },
+    {
+      "id": "design-system-adopt-variant",
+      "query": "We picked a card variant that uses raw hex colors and a 14px gap. Fold those values into our tokens without adding duplicates.",
+      "should_trigger": true
+    },
+    {
+      "id": "design-system-neg-compose-picker",
+      "query": "Build a date-range picker for the reports filter from our shadcn Popover and Calendar instead of a custom widget.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "component-compose"
+    },
+    {
+      "id": "design-system-neg-ai-styling",
+      "query": "AI-built screens added gradient headings, glows, and colored side stripes on cards. Find and remove that slop.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "slop-removal"
+    },
+    {
+      "expected_skill": "state-coverage",
+      "id": "design-system-neg-missing-states",
+      "near_miss": true,
+      "query": "Audit the settings screen for missing loading, empty, and error states and say what each should show.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "agent-context",
+      "id": "design-system-neg-agents-md",
+      "near_miss": false,
+      "query": "Write an AGENTS.md with verified commands and paths for our repo.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "ui-layout",
+      "id": "design-system-neg-page-shell",
+      "near_miss": false,
+      "query": "Plan the landing page shell, reading order, and scroll ownership for narrow and wide sizes.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "interface-craft",
+      "id": "design-system-neg-visual-polish",
+      "near_miss": false,
+      "query": "This dashboard looks flat. Refine the composition and visual treatment before review.",
+      "should_trigger": false
+    }
+  ],
+  "skill_name": "design-system"
+}

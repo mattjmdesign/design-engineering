@@ -1,0 +1,8 @@
+interface:
+  display_name: "Product intent"
+  short_description: "Clarify users, outcomes, and scope"
+  brand_color: "#B45309"
+  default_prompt: "Use $product-intent to turn this rough idea into a decision-ready product brief."
+
+policy:
+  allow_implicit_invocation: true

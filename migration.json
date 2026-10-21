@@ -1,0 +1,30 @@
+{
+  "from": "dengskills 2.x",
+  "to": "design-engineering 1.0.0",
+  "renames": {
+    "intent": "product-intent",
+    "requirements": "ui-representation",
+    "testable-requirements": "ui-representation",
+    "layout": "ui-layout",
+    "page-layout": "ui-layout",
+    "component": "component-compose",
+    "component-spec": "component-compose",
+    "tokens": "design-system",
+    "system": "design-system",
+    "craft": "interface-craft",
+    "sitemap": "site-map",
+    "flow": "user-flow",
+    "hierarchy": "content-hierarchy",
+    "states": "state-coverage",
+    "context": "agent-context"
+  },
+  "removed": [
+    "prototype",
+    "stack",
+    "setup",
+    "git",
+    "slice",
+    "readiness"
+  ],
+  "note": "Removed skills are ordinary product or engineering requests in this release rather than automatic skill routes. Use the current active skill that owns the visible decision."
+}

@@ -1,0 +1,41 @@
+{
+  "skill_name": "content-hierarchy",
+  "evals": [
+    {
+      "id": "project-overview",
+      "prompt": "Plan the content hierarchy for a project overview page with status, tasks, files, team, comments, and settings.",
+      "assertions": [
+        "Names primary action/decision",
+        "Ranks content into primary/secondary/tertiary",
+        "Includes responsive priority",
+        "Includes accessibility notes"
+      ]
+    },
+    {
+      "id": "crowded-dashboard",
+      "prompt": "Our dashboard has 12 metrics, activity, alerts, recommendations, and a big create button. Help structure it.",
+      "assertions": [
+        "Does not treat all metrics equally",
+        "Recommends move/defer/collapse",
+        "Identifies primary decision"
+      ]
+    },
+    {
+      "id": "marketing-page",
+      "prompt": "What should go on the homepage for an AI intake product?",
+      "assertions": [
+        "Includes H1/page purpose",
+        "Identifies primary CTA",
+        "Separates supporting content"
+      ]
+    },
+    {
+      "id": "no-equal-weight",
+      "prompt": "Plan content for a pricing page with 20 feature cards.",
+      "assertions": [
+        "Ranks content instead of listing",
+        "Names one primary action"
+      ]
+    }
+  ]
+}

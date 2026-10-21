@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Themed Page</title>
+<!-- Colors use oklch() and color-mix() on purpose: the collector must normalise them through a canvas.
+     In dark, the body text is deliberately too faint. -->
+<style>
+  :root {
+    color-scheme: light dark;
+    --fg: oklch(0.25 0.02 260);
+    --bg: color-mix(in srgb, white 92%, #0b5fff);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg: oklch(0.45 0.01 260); --bg: #101218; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 640px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 16px; }
+  p { margin: 0 0 16px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Themed page</h1>
+  <p>Body text whose color comes from oklch and changes with the color scheme.</p>
+</main>
+</body>
+</html>

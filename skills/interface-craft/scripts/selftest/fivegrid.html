@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Five Pixel Grid</title>
+<!-- A project that spaces everything in multiples of 5. init should notice the 4px grid does not fit. -->
+<style>
+  :root { --space-1: 5px; --space-2: 10px; --space-3: 15px; --space-4: 25px; --radius-md: 10px; --text-base: 15px; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: var(--text-base)/1.5 system-ui, sans-serif; color: #1b1f24; background: #fff; }
+  main { padding: var(--space-4); }
+  h1 { font-size: 25px; margin: 0 0 var(--space-2); }
+  .card { border: 1px solid #d0d5dd; border-radius: var(--radius-md); padding: var(--space-3); margin-bottom: var(--space-3); }
+  .card p { margin: var(--space-1) 0 0; }
+  .tag { display: inline-block; padding: var(--space-1) var(--space-2); background: #eef2ff; margin-right: var(--space-1); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Five pixel grid</h1>
+  <div class="card"><span class="tag">New</span><span class="tag">Draft</span><p>Spacing here is built on five.</p></div>
+  <div class="card"><span class="tag">Done</span><span class="tag">Ship</span><p>Every gap is a multiple of five.</p></div>
+  <div class="card"><span class="tag">Open</span><span class="tag">Wait</span><p>Fifteen, ten, and twenty-five.</p></div>
+</main>
+</body>
+</html>

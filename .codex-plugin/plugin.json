@@ -1,0 +1,36 @@
+{
+  "name": "design-engineering",
+  "version": "1.0.0",
+  "description": "Portable design engineering skills for turning product intent into clear interfaces, measured options, and verified UI.",
+  "author": {
+    "name": "Matt Mitchell",
+    "url": "https://github.com/mattjmdesign"
+  },
+  "homepage": "https://github.com/mattjmdesign/design-engineering",
+  "repository": "https://github.com/mattjmdesign/design-engineering",
+  "license": "MIT",
+  "keywords": [
+    "design-engineering",
+    "design-system",
+    "prototyping",
+    "frontend",
+    "accessibility",
+    "product-design"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Design Engineering",
+    "shortDescription": "Turn product intent into clear, measured, verified UI.",
+    "longDescription": "A portable set of design engineering skills for product designers working in code: clarify intent, choose the right UI representation, plan structure and flows, compose from existing primitives, compare measured variants, remove AI slop, and verify the rendered interface.",
+    "developerName": "Matt Mitchell",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://github.com/mattjmdesign/design-engineering",
+    "brandColor": "#B45309",
+    "defaultPrompt": [
+      "Use $interface-craft to improve this screen and verify the rendered result.",
+      "Use $ui-representation to turn these notes into the right UI and component map.",
+      "Use $design-system to audit the tokens and shared components before changing them."
+    ]
+  }
+}

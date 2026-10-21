@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>New project</title>
+<!-- A stock shadcn/ui Card (Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter) with the computed styles its default classes give:
+     bg-card, rounded-xl, border, py-6, gap-6, shadow-sm, a muted description, outline and default buttons. It must pass every slop rule at every tier. Capture at 800. -->
+<style>
+  * { box-sizing: border-box; }
+  :root { --background: #ffffff; --foreground: #0a0a0a; --card: #ffffff; --muted-foreground: #737373; --border: #e5e5e5; --primary: #171717; --primary-foreground: #fafafa; --radius: 10px; }
+  body { margin: 0; background: var(--background); color: var(--foreground); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 24px; line-height: 1.25; margin: 0 0 24px; }
+  [data-slot="card"] { display: flex; flex-direction: column; gap: 24px; width: 100%; max-width: 384px; padding: 24px 0; border: 1px solid var(--border); border-radius: 14px; background: var(--card); color: var(--foreground); box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); }
+  [data-slot="card-header"] { display: grid; grid-auto-rows: min-content; align-items: start; gap: 6px; padding: 0 24px; }
+  [data-slot="card-title"] { font-weight: 600; line-height: 1; }
+  [data-slot="card-description"] { font-size: 14px; line-height: 20px; color: var(--muted-foreground); }
+  [data-slot="card-content"] { padding: 0 24px; }
+  [data-slot="card-footer"] { display: flex; align-items: center; justify-content: space-between; padding: 0 24px; }
+  .fields { display: grid; gap: 16px; }
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  label { font-size: 14px; font-weight: 500; line-height: 1; }
+  input, select { height: 36px; padding: 4px 12px; border: 1px solid var(--border); border-radius: 8px; background: transparent; color: var(--foreground); font: 14px/20px inherit; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+  button { display: inline-flex; align-items: center; justify-content: center; height: 36px; padding: 0 16px; border-radius: 8px; font: 500 14px/20px system-ui, sans-serif; cursor: pointer; }
+  button[data-variant="outline"] { border: 1px solid var(--border); background: var(--background); color: var(--foreground); box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); }
+  button[data-variant="default"] { border: 0; background: var(--primary); color: var(--primary-foreground); }
+</style>
+</head>
+<body>
+<main>
+  <h1>New project</h1>
+  <div data-slot="card" class="bg-card text-card-foreground flex flex-col gap-6 rounded-xl border py-6 shadow-sm shadcn-card">
+    <div data-slot="card-header" class="grid auto-rows-min items-start gap-2 px-6">
+      <div data-slot="card-title" class="leading-none font-semibold">Create project</div>
+      <div data-slot="card-description" class="text-muted-foreground text-sm">Deploy your new project in one-click.</div>
+    </div>
+    <div data-slot="card-content" class="px-6">
+      <form>
+        <div class="fields">
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" placeholder="Name of your project">
+          </div>
+          <div class="field">
+            <label for="framework">Framework</label>
+            <select id="framework"><option>Next.js</option><option>SvelteKit</option><option>Astro</option></select>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div data-slot="card-footer" class="flex items-center px-6">
+      <button type="button" data-slot="button" data-variant="outline">Cancel</button>
+      <button type="button" data-slot="button" data-variant="default">Deploy</button>
+    </div>
+  </div>
+</main>
+</body>
+</html>

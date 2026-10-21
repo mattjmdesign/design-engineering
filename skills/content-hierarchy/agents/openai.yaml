@@ -1,0 +1,8 @@
+interface:
+  display_name: "Content hierarchy"
+  short_description: "Prioritize page content and interface copy"
+  brand_color: "#B45309"
+  default_prompt: "Use $content-hierarchy to rank this page's content and write a focused copy deck."
+
+policy:
+  allow_implicit_invocation: true

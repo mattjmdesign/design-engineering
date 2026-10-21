@@ -1,0 +1,65 @@
+{
+  "cases": [
+    {
+      "id": "product-intent-pos-01",
+      "query": "A client asked for 'a smarter scheduling app for crews': turn that into a decision-ready brief with user, outcome, and scope before we design anything.",
+      "should_trigger": true
+    },
+    {
+      "id": "product-intent-pos-02",
+      "query": "I vibe-coded a crew assignment prototype this weekend: help me clarify who it's really for and what the first useful workflow should be.",
+      "should_trigger": true
+    },
+    {
+      "id": "product-intent-pos-03",
+      "query": "We shipped a time-tracking add-on nobody uses: compare it to the original promise and recommend a bounded correction.",
+      "should_trigger": true
+    },
+    {
+      "id": "product-intent-pos-04",
+      "query": "Sales sent a rough request for client dashboards: help me separate evidence from assumptions and set the smallest useful scope.",
+      "should_trigger": true
+    },
+    {
+      "id": "product-intent-pos-05",
+      "query": "Before we open Figma, what's the core job, entry point, and acceptance check for a foreman assigning next week's sites?",
+      "should_trigger": true
+    },
+    {
+      "id": "product-intent-neg-01",
+      "query": "We have a rough brief for crew assignments. Write FR-style requirements with acceptance examples before design starts.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "ui-representation"
+    },
+    {
+      "id": "product-intent-neg-02",
+      "query": "The crew scheduling goal is agreed. What is the right UI for a week of assignments per person, a table, a calendar, or cards, and which components build it?",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "ui-representation"
+    },
+    {
+      "id": "product-intent-neg-03",
+      "query": "Scope for the foreman's assignment card is settled. Show me three different design options for the card behind a picker in the app.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "ui-variants"
+    },
+    {
+      "expected_skill": "site-map",
+      "id": "product-intent-neg-04",
+      "near_miss": false,
+      "query": "Plan the route tree and sidebar navigation for our dashboard, including /projects/:id access rules and shareable URL state.",
+      "should_trigger": false
+    },
+    {
+      "id": "product-intent-neg-05",
+      "query": "Build the ProjectStatusBadge from our shadcn Badge and its variants instead of writing a new component.",
+      "should_trigger": false,
+      "near_miss": false,
+      "expected_skill": "component-compose"
+    }
+  ],
+  "skill_name": "product-intent"
+}

@@ -1,0 +1,57 @@
+{
+  "skill_name": "ui-representation",
+  "evals": [
+    {
+      "id": "feedback-suggests-widget",
+      "prompt": "Client feedback: \"Managers keep missing late projects. Can we add a pie chart of project status to the dashboard?\" Each project has name, client, owner, due date, status (on track, at risk, late), and last update. Work out what we should build.",
+      "assertions": [
+        "Restates the input as a task, the stated facts, and open questions before proposing any UI",
+        "Names the underlying problem (managers cannot see which projects are late) and says the suggested pie chart would show counts but not which projects",
+        "Chooses a list or table that names each late project with its owner and due date, and names at least one rejected alternative with a reason",
+        "Uses no project names, counts, dates, or people that are not in the prompt",
+        "States where it sits (the dashboard, and which region) and includes at least one acceptance check with a fixture count and a viewport width"
+      ]
+    },
+    {
+      "id": "meeting-notes-missing-facts",
+      "prompt": "Notes from today's call: Dana wants approvals on the invoices page. Sam thinks finance might want a bulk approve. Agreed: approvers see invoices over $5,000 waiting for them. Nobody said who counts as an approver. Turn this into a UI proposal.",
+      "assertions": [
+        "Separates the agreed decision from the suggestions and attributes each suggestion to the person who made it",
+        "Lists who counts as an approver as an open question instead of assuming a role or inventing one",
+        "Treats bulk approve as a question or an optional addition, not as a decided feature",
+        "Includes a check that someone who is not an approver cannot approve, including by a direct request",
+        "Contains no invented invoice numbers, vendor names, or amounts other than the $5,000 threshold"
+      ]
+    },
+    {
+      "id": "comparison-data-shape",
+      "prompt": "Buyers need to pick a vendor. Here is a sample of the data: vendor, unit price, lead time in days, minimum order, rating, region. There are about 40 vendors. How should this appear in the app?",
+      "assertions": [
+        "Chooses a table because buyers compare records across several attributes",
+        "Rejects a card grid (or another named alternative) with a reason tied to comparison",
+        "Puts the vendor name first and right-aligns the numeric columns or says to",
+        "Names sorting or filtering by at least one of price, lead time, or rating",
+        "Covers the empty case and the full count of about 40 in its acceptance checks"
+      ]
+    },
+    {
+      "id": "requirements-on-request",
+      "prompt": "Write FR and NFR requirements with acceptance criteria for renaming projects: editors can rename, viewers cannot, and the project list should load fast on field phones.",
+      "assertions": [
+        "Writes FR lines in the FR-01 shape, each with an Accept example",
+        "Includes a case where a viewer's direct rename request is rejected by the server, not only a hidden button",
+        "Gives the speed requirement a condition and a verification method, and marks any target number as proposed",
+        "Lists unknowns, such as how roles are stored, instead of naming an endpoint as if it exists"
+      ]
+    },
+    {
+      "id": "unclear-who-and-why",
+      "prompt": "The client says they want an AI portal for intake. That's all we have. What screens should we design?",
+      "assertions": [
+        "Says that who the portal is for and what outcome it serves are unclear",
+        "Hands off to product-intent or asks the questions that settle the user and outcome, instead of proposing a full set of screens",
+        "Does not invent intake fields, user roles, or metrics"
+      ]
+    }
+  ]
+}

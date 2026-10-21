@@ -1,0 +1,70 @@
+{
+  "cases": [
+    {
+      "id": "agent-context-new-agents-01",
+      "query": "Create an AGENTS.md for our app so agents use the real commands, paths, and architecture rules.",
+      "should_trigger": true
+    },
+    {
+      "id": "agent-context-invent-fix-02",
+      "query": "Agents keep inventing test commands and hardcoding styles: revise our repo instructions to stop the guessing.",
+      "should_trigger": true
+    },
+    {
+      "id": "agent-context-stale-03",
+      "query": "Our instructions list obsolete paths and duplicate formatting stacks: reconcile them into one authoritative home.",
+      "should_trigger": true
+    },
+    {
+      "id": "agent-context-claude-04",
+      "query": "Draft a CLAUDE.md for this repo with verified checks and observable evidence for the work.",
+      "should_trigger": true
+    },
+    {
+      "id": "agent-context-boundaries-05",
+      "query": "Capture where secrets, cached data, and token sources live so agents respect the boundaries.",
+      "should_trigger": true
+    },
+    {
+      "id": "agent-context-ui-block-06",
+      "query": "Add a short UI section to our AGENTS.md: where the primitives live, the reuse order, our checks, and which rules lint catches.",
+      "should_trigger": true
+    },
+    {
+      "id": "agent-context-neg-compose-01",
+      "query": "Check whether the new settings page reuses our components/ui primitives or bypasses them with raw elements.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "component-compose"
+    },
+    {
+      "id": "agent-context-neg-design-md-02",
+      "query": "Update DESIGN.md with the token and component names agents may use and the rule for adding a new one.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "design-system"
+    },
+    {
+      "expected_skill": "design-system",
+      "id": "agent-context-neg-tokens-03",
+      "near_miss": true,
+      "query": "Create semantic color and spacing tokens with theme pairs before we build components.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "site-map",
+      "id": "agent-context-neg-urls-04",
+      "near_miss": true,
+      "query": "Write down the URL paths for our app and which areas are public, signed-in, or admin.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "ui-layout",
+      "id": "agent-context-neg-layout-05",
+      "near_miss": false,
+      "query": "Design the dashboard shell with reading order and responsive behavior for wide tables.",
+      "should_trigger": false
+    }
+  ],
+  "skill_name": "agent-context"
+}

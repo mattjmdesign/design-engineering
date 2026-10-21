@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nested Radii</title>
+<!-- Concentric corners: the inner radius is the container radius minus the inset between them. Classes starting with nest-, flush-, and untokened- are planted
+     defects; classes starting with ok- are clean twins. The radius scale is 4, 8, 12, and 16. Run init first so the tokens are read. -->
+<style>
+  :root {
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ffffff; color: #1b1f24; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: var(--space-5); }
+  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 var(--space-4); }
+  .cases { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+  .panel { background: #f1f5f9; border-radius: var(--radius-lg); padding: var(--space-2); }
+  .inner { background: #ffffff; padding: var(--space-3); border: 0; }
+  .nest-bad .inner { border-radius: 8px; }
+  .ok-nest .inner { border-radius: 4px; }
+  .ok-deep { padding: var(--space-4); }
+  .ok-deep .inner { border-radius: 8px; }
+  .flush-clip { padding: 0; overflow: hidden; }
+  .flush-clip .band { background: #cbd5e1; padding: var(--space-3); border-radius: 0; }
+  .flush-bad { padding: 0; }
+  .flush-bad .band { background: #cbd5e1; padding: var(--space-3); border-radius: 0; }
+  .ok-derived { border-radius: var(--radius-xl); padding: 10px; }
+  .ok-derived .inner { border-radius: calc(var(--radius-xl) - 10px); padding: var(--space-3); }
+  .ok-pill .inner { border-radius: 999px; padding: var(--space-1) var(--space-3); display: inline-block; }
+  .btn { padding: var(--space-2) var(--space-4); border: 1px solid #6b7280; background: #ffffff; color: #1b1f24; font: inherit; }
+  .untokened-btn { border-radius: 7px; }
+  .ok-btn { border-radius: var(--radius-md); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Nested radii</h1>
+  <div class="cases">
+    <div class="panel nest-bad"><div class="inner">Radius 8 inside 12 with an 8 inset: should be 4</div></div>
+    <div class="panel ok-nest"><div class="inner">Radius 4 inside 12 with an 8 inset</div></div>
+    <div class="panel ok-deep"><div class="inner">Radius 8 inside 12 with a 16 inset</div></div>
+    <div class="panel flush-clip"><div class="band">Flush band in a container that clips</div><div style="padding: 12px">Body</div></div>
+    <div class="panel flush-bad"><div class="band">Flush band in a container that does not clip</div><div style="padding: 12px">Body</div></div>
+    <div class="panel ok-derived"><div class="inner">Radius 6 derived from 16 minus a 10 inset</div></div>
+    <div class="panel ok-pill"><span class="inner">Pill</span></div>
+    <div><button type="button" class="btn untokened-btn">Radius 7 is not on the scale</button> <button type="button" class="btn ok-btn">Radius 8</button></div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,91 @@
+{
+  "skill_name": "design-system",
+  "evals": [
+    {
+      "id": "define-new-foundation",
+      "prompt": "Set up the initial UI system for a new SaaS dashboard using Tailwind v4.",
+      "assertions": [
+        "Includes semantic color tokens",
+        "Includes typography and spacing scales",
+        "Defines supported themes without imposing unnecessary dark mode",
+        "Defines token source of truth"
+      ]
+    },
+    {
+      "id": "define-figma-token-setup",
+      "prompt": "Plan a token foundation for a new Figma file that should later map cleanly to code.",
+      "assertions": [
+        "Mentions Figma variables",
+        "Uses semantic names",
+        "Maps design tokens to code tokens",
+        "Uses roles where they clarify reuse without banning legitimate literal source values"
+      ]
+    },
+    {
+      "id": "define-existing-system-check",
+      "prompt": "We already have globals.css tokens. Decide how to initialize the UI system without breaking it.",
+      "assertions": [
+        "Audits existing system first",
+        "Avoids replacement",
+        "Identifies gaps",
+        "Documents decisions"
+      ]
+    },
+    {
+      "id": "define-no-token-replacement",
+      "prompt": "Our app already has tokens in globals.css. Initialize the UI system.",
+      "assertions": [
+        "Audits existing tokens first",
+        "Does not introduce a second token source"
+      ]
+    },
+    {
+      "id": "audit-design-md",
+      "prompt": "Create a DESIGN.md for an existing app with tokens, shadcn/ui components, and a dashboard layout.",
+      "assertions": [
+        "Includes DESIGN.md content",
+        "Inventories tokens",
+        "Inventories components",
+        "Defines future guardrails"
+      ]
+    },
+    {
+      "id": "audit-drift",
+      "prompt": "Audit this codebase for UI drift before we add another feature.",
+      "assertions": [
+        "Flags token drift",
+        "Flags component drift",
+        "Flags layout drift",
+        "Prioritizes fixes"
+      ]
+    },
+    {
+      "id": "migrate-new-component-review",
+      "prompt": "We want to add a new date range picker. Check what design system updates are required.",
+      "assertions": [
+        "Checks existing primitives",
+        "Documents required updates",
+        "Avoids silent additions",
+        "Includes migration impact"
+      ]
+    },
+    {
+      "id": "audit-no-silent-rewrite",
+      "prompt": "Fix drift in our design system: several components use hardcoded colors.",
+      "assertions": [
+        "Lists evidence per issue",
+        "Does not silently rewrite the system"
+      ]
+    },
+    {
+      "id": "guard-existing-checker",
+      "prompt": "Agents keep adding raw hex colors and off-scale spacing to new components in this repo. Set up something that keeps styling consistent when no agent is watching.",
+      "assertions": [
+        "Looks for the project's own checker or package script before adding anything",
+        "Does not claim a checker or script exists unless it found one",
+        "Records existing violations as a baseline and fails only on new ones",
+        "Reports the checker result, or says it was not run"
+      ]
+    }
+  ]
+}

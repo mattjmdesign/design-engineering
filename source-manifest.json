@@ -1,0 +1,40 @@
+{
+  "source": {
+    "label": "private work source",
+    "path": "plugins/design-engineering",
+    "revision": "62aca75305995cffc5464869044ce6093b3c4f93",
+    "branch": "release/3.0.0",
+    "workingTreeStatusSha256": "04ae3537d8b011dc52d66aa4d4dae4bdd6582693136d7acb98bb3215efcaf89a",
+    "workingTreeStatusCapturedAt": "2026-10-21T17:52:46-04:00",
+    "upstreamPluginVersion": "3.0.0"
+  },
+  "snapshot": {
+    "capturedAt": "2026-10-21T17:52:46-04:00",
+    "temporaryPath": "local-only snapshot; not shipped",
+    "fileCount": 110,
+    "treeSha256": "d4e1d523b0d7e95da82817807e0a7fc1b762807f8d1da5bbbbb7e2ce5a504640",
+    "fileHashes": "snapshot/file-hashes.sha256",
+    "fileHashAlgorithm": "sha256",
+    "excluded": [
+      ".DS_Store",
+      "evals/results/",
+      "__pycache__/",
+      ".ui-evidence/"
+    ]
+  },
+  "copyPolicy": {
+    "workSourceModified": false,
+    "personalVersion": "1.0.0",
+    "adaptations": [
+      "Changed package identity and author metadata to Matt Mitchell's personal repository.",
+      "Added portable Agent Plugins, Codex, Claude, local marketplace, and Pi package manifests.",
+      "Added per-skill Codex presentation metadata in agents/openai.yaml; active skills allow implicit routing and the compatibility redirect remains explicit-only.",
+      "Added an explicit npm package file whitelist and npmignore so published packages exclude generated caches and browser evidence.",
+      "Kept the skills' relative references and supporting scripts beside their owning skill.",
+      "Removed one work-style-specific sentence from the slop catalog.",
+      "Replaced one Claude-specific delegation instruction with host-neutral delegation and sequential fallback wording.",
+      "Added migration metadata, source hashes, full MIT and Apache-2.0 license texts, and third-party attribution for credited adaptations; preserved the unverified Gesso provenance note without treating Gesso as a dependency.",
+      "Normalized the browser self-test file to one trailing newline; test logic is unchanged."
+    ]
+  }
+}

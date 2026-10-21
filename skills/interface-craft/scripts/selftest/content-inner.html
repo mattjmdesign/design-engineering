@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Content Column In An Inner Scroll Region</title>
+<!-- The scroll container sits inside main and reserves a scrollbar gutter (scrollbar-gutter: stable), as many app shells do. The region is that container's
+     client box, so a centered column has equal gutters even though the reserved gutter takes space on the right. Capture at 1280. -->
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ffffff; color: #1b1f24; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .shell { display: flex; height: 100vh; }
+  .rail { width: 64px; flex: none; background: #f1f5f9; padding: 16px 0; text-align: center; }
+  .rail a { color: #0b5fff; }
+  main { flex: 1; min-width: 0; overflow: hidden; }
+  .scroll { height: 100%; overflow-y: auto; scrollbar-gutter: stable; }
+  .body { max-width: 960px; margin: 0 auto; padding: 16px 24px; }
+  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 16px; }
+  p { margin: 0 0 16px; }
+</style>
+</head>
+<body>
+<div class="shell">
+  <nav class="rail" aria-label="Primary"><a href="#home">Home</a></nav>
+  <main>
+    <div class="scroll">
+      <div class="body">
+        <h1>Inner scroll region</h1>
+        <p>The content column is centered in the scroll container's client box, so the gutter the browser reserves for the scrollbar is not counted as content space.</p>
+        <p>A second paragraph keeps the column taller than one line and gives the section something to hold on to for the measurement.</p>
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>

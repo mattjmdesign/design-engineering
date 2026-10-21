@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Planted Defects</title>
+<!-- Every defect below is deliberate. expected.json lists the rule that must catch each one. -->
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #ffffff; color: #1b1f24; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px; }
+  h1 { font-size: 28px; line-height: 1.25; margin: 0 0 16px; }
+  h2 { font-size: 20px; line-height: 1.25; margin: 0 0 16px; }
+  p { margin: 0 0 16px; }
+  a { color: #0b5fff; }
+  section { margin-top: 32px; }
+  .card { border: 1px solid #d0d5dd; border-radius: 8px; padding: 16px; margin-bottom: 16px; }
+  .card h3 { font-size: 16px; font-weight: 600; margin: 0 0 8px; }
+  .card p { margin: 0; }
+  .row { display: flex; gap: 8px; align-items: center; margin-bottom: 16px; }
+  button, input { font: inherit; }
+  button { padding: 0 16px; border: 1px solid #6b7280; border-radius: 8px; background: #ffffff; color: #1b1f24; cursor: pointer; }
+  input { padding: 0 12px; border: 1px solid #6b7280; border-radius: 8px; }
+  .noring:focus, .noring:focus-visible { outline: none; }
+  .fake { cursor: pointer; color: #0b5fff; margin-bottom: 16px; }
+  ul { list-style: none; margin: 0; padding: 0; }
+  li { padding: 8px 0; border-bottom: 1px solid #d0d5dd; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Planted defects</h1>
+  <p>This page is built to fail on purpose so the checker can be tested against known problems.</p>
+
+  <!-- 2. a left edge two pixels off the column -->
+  <p>First paragraph in the column.</p>
+  <p style="margin-left: 2px">Second paragraph sits two pixels to the right of the first.</p>
+
+  <!-- 4. text at about 3.2:1 -->
+  <p style="color: #909090">Muted note whose contrast is only about three to one.</p>
+
+  <!-- 11. text below 12px -->
+  <p style="font-size: 10px">Fine print set at ten pixels.</p>
+
+  <!-- 5. wider than a phone screen -->
+  <div style="width: 480px; margin-bottom: 16px; background: #eef2ff">This block is 480 pixels wide, wider than a phone.</div>
+
+  <section>
+    <!-- 1. three cards of one kind, one with 13px padding -->
+    <div class="card"><h3>Draft</h3><p>Start from a template.</p></div>
+    <div class="card"><h3>Review</h3><p>See open questions.</p></div>
+    <div class="card" style="padding: 13px"><h3>Ship</h3><p>Hand off with history.</p></div>
+  </section>
+
+  <section>
+    <!-- 6. input 36px beside a 32px button -->
+    <div class="row"><input type="text" aria-label="Search" style="height: 36px"><button type="button" style="height: 32px">Go</button></div>
+
+    <!-- 14. a field named only by its placeholder -->
+    <div class="row"><input type="text" placeholder="Email address" style="height: 44px"></div>
+
+    <!-- 3. a 20px target, 13. an icon button with no name, 7. a button with its focus ring removed -->
+    <div class="row">
+      <span style="display: inline-flex; gap: 2px"><button type="button" aria-label="Close" style="width: 20px; height: 20px; padding: 0">x</button><button type="button" aria-label="Minimize" style="width: 20px; height: 20px; padding: 0">-</button></span>
+      <button type="button" style="width: 44px; height: 44px; padding: 0"><svg width="16" height="16" aria-hidden="true"><path d="M2 2L14 14" stroke="#333" stroke-width="2"/></svg></button>
+      <button type="button" class="noring" style="height: 44px">Archive</button>
+    </div>
+
+    <!-- 9. a div with a click handler and no role -->
+    <div class="fake" onclick="void 0">Open details</div>
+
+    <!-- 10. an image with no alt attribute -->
+    <img width="64" height="64" src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Crect width='64' height='64' fill='%23e5ecff'/%3E%3C/svg%3E">
+  </section>
+
+  <section>
+    <!-- 8. the label says 13, the list has 14 rows -->
+    <h2>Queue</h2>
+    <p>13 items</p>
+    <ul>
+      <li>Row 1</li><li>Row 2</li><li>Row 3</li><li>Row 4</li><li>Row 5</li><li>Row 6</li><li>Row 7</li>
+      <li>Row 8</li><li>Row 9</li><li>Row 10</li><li>Row 11</li><li>Row 12</li><li>Row 13</li><li>Row 14</li>
+    </ul>
+  </section>
+
+  <!-- 12. the Beta heading sits closer to the paragraph above than to its own text -->
+  <section>
+    <h2>Alpha</h2>
+    <p>Alpha text introduces the first topic and gives the heading below something to be close to.</p>
+    <h2 style="margin: 8px 0 32px">Beta</h2>
+    <p>Beta text belongs to the heading above it but sits far below it.</p>
+  </section>
+</main>
+<script>console.error("planted defect: this error is on purpose");</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "screen": "specs",
+  "url": "states.html",
+  "ready_when": "h1",
+  "states": {
+    "loading": {"net": [{"match": "/api/specs", "hang": true}], "expect": ".spinner"},
+    "empty": {"net": [{"match": "/api/specs", "json": []}], "expect": ".empty"},
+    "error": {"net": [{"match": "/api/specs", "status": 500, "json": {"detail": "boom"}}], "expect": ".error"},
+    "full": {"net": [{"match": "/api/specs", "json": [{"name": "Login flow"}, {"name": "Projects hub"}, {"name": "Specs table"}]}], "expect": ".row"},
+    "offline": {"offline": true, "expect": ".offline"},
+    "opened": {"net": [{"match": "/api/specs", "json": []}], "steps": [{"click": "#toggle"}], "expect": ".panel"},
+    "saved": {"net": [{"match": "/api/specs", "json": []}], "steps": [{"click": "#save"}], "expect": "text:Saved"},
+    "typed": {"net": [{"match": "/api/specs", "json": []}], "steps": [{"type": "#nm", "text": "x"}, {"press": "Enter"}], "expect": "text:Name is too short"},
+    "ghost": {"net": [{"match": "/api/specs", "json": []}], "expect": ".never-present", "timeout": 1}
+  },
+  "pseudo": [
+    {"sel": "#toggle", "states": ["hover", "focus-visible"]},
+    {"sel": "#missing", "states": ["hover"]}
+  ]
+}

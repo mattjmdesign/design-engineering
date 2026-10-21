@@ -1,0 +1,82 @@
+{
+  "cases": [
+    {
+      "id": "content-hierarchy-pos-01",
+      "query": "Our pricing page feels noisy: rank what belongs above the fold, with H1, primary decision, and what to move or remove.",
+      "should_trigger": true
+    },
+    {
+      "id": "content-hierarchy-pos-02",
+      "query": "Plan the content hierarchy for an invite screen so recipient, role, and access consequence come before the send action.",
+      "should_trigger": true
+    },
+    {
+      "id": "content-hierarchy-pos-03",
+      "query": "Help me decide headings, reading order, and responsive priority for a foreman trial landing page before layout.",
+      "should_trigger": true
+    },
+    {
+      "id": "content-hierarchy-pos-04",
+      "query": "Audit our dashboard for competing emphasis: group and rewrite copy so the next action is obvious without adding cards.",
+      "should_trigger": true
+    },
+    {
+      "id": "content-hierarchy-pos-05",
+      "query": "What moves or collapses on narrow screens for our project detail, and how do users retrieve deferred content?",
+      "should_trigger": true
+    },
+    {
+      "id": "content-hierarchy-pos-06",
+      "query": "Write the copy deck for the invite dialog before we build it: title, hint, button, error, and empty-state strings.",
+      "should_trigger": true
+    },
+    {
+      "id": "content-hierarchy-pos-07",
+      "query": "Write the error and empty-state messages for the project list so each names the cause or the missing item and one next action.",
+      "should_trigger": true
+    },
+    {
+      "expected_skill": "ui-layout",
+      "id": "content-hierarchy-neg-01",
+      "near_miss": true,
+      "query": "Our dashboard feels noisy and cramped: redesign the shell regions, sidebar width, and responsive stacking with shared dimensions.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "ui-layout",
+      "id": "content-hierarchy-neg-02",
+      "near_miss": true,
+      "query": "Fix our landing plus dashboard shells so persistent regions don't shift when overlays open and tables scroll locally.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "ui-layout",
+      "id": "content-hierarchy-neg-03",
+      "near_miss": true,
+      "query": "Plan the page shells for marketing, dashboard, and auth with reading order, width limits, and scroll ownership.",
+      "should_trigger": false
+    },
+    {
+      "expected_skill": "site-map",
+      "id": "content-hierarchy-neg-04",
+      "near_miss": false,
+      "query": "Map our app routes and nav placement for /projects, /team, and admin with access rules.",
+      "should_trigger": false
+    },
+    {
+      "id": "content-hierarchy-neg-05",
+      "query": "Build the status badge from our existing Badge variants instead of a new component.",
+      "should_trigger": false,
+      "near_miss": false,
+      "expected_skill": "component-compose"
+    },
+    {
+      "id": "content-hierarchy-neg-06",
+      "query": "This built page reads as AI-made: an eyebrow over every heading, gradient text, and a subtitle restating each title. Find and remove the slop.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "slop-removal"
+    }
+  ],
+  "skill_name": "content-hierarchy"
+}

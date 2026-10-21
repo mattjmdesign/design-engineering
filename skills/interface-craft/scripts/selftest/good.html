@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spec Library</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --fg: #1b1f24;
+    --fg-2: #4b5563;
+    --line: #d0d5dd;
+    --line-strong: #6b7280;
+    --accent: #0b5fff;
+    --on-accent: #ffffff;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --radius: 8px;
+    --text-sm: 14px;
+    --text-md: 16px;
+    --text-lg: 20px;
+    --text-xl: 28px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0f1115;
+      --surface: #171a21;
+      --fg: #e6e8eb;
+      --fg-2: #a3a9b3;
+      --line: #2b303b;
+      --line-strong: #6b7280;
+      --accent: #6ea0ff;
+      --on-accent: #0b1020;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: var(--text-md)/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  a { color: var(--accent); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: var(--space-5); }
+  header { border-bottom: 1px solid var(--line); }
+  .bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); padding-top: 0; padding-bottom: 0; }
+  .brand { display: inline-flex; align-items: center; min-height: 44px; font-weight: 600; text-decoration: none; }
+  nav { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--space-3); text-decoration: none; }
+  h1 { font-size: var(--text-xl); line-height: 1.25; margin: 0 0 var(--space-3); }
+  h2 { font-size: var(--text-lg); line-height: 1.25; margin: 0 0 var(--space-3); }
+  h3 { font-size: var(--text-md); font-weight: 600; margin: 0 0 var(--space-2); }
+  p { margin: 0 0 var(--space-4); }
+  .lead { max-width: 65ch; color: var(--fg-2); margin-bottom: var(--space-5); }
+  section { margin-top: var(--space-7); }
+  .count { color: var(--fg-2); font-size: var(--text-sm); margin: 0 0 var(--space-3); }
+  .list { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); min-height: 44px; border-bottom: 1px solid var(--line); }
+  .row a { display: inline-flex; align-items: center; min-height: 44px; }
+  .meta { color: var(--fg-2); font-size: var(--text-sm); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-4); }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--space-4); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 var(--space-4); border: 0; border-radius: var(--radius);
+         background: var(--accent); color: var(--on-accent); font: inherit; font-weight: 600; text-decoration: none; cursor: pointer; }
+  .field { display: flex; flex-direction: column; gap: var(--space-2); margin-bottom: var(--space-5); max-width: 420px; }
+  label { font-size: var(--text-sm); font-weight: 600; }
+  input[type="text"], select { height: 44px; padding: 0 var(--space-3); border: 1px solid var(--line-strong); border-radius: var(--radius);
+                               background: var(--surface); color: var(--fg); font: inherit; }
+  .check { display: flex; align-items: center; gap: var(--space-2); min-height: 44px; font-size: 16px; font-weight: 400; margin-bottom: var(--space-4); }
+  .check input { margin: 0; }
+  .icon { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 1px solid var(--line-strong);
+          border-radius: var(--radius); background: transparent; color: var(--accent); cursor: pointer; }
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--line); text-align: left; }
+  th { font-size: var(--text-sm); font-weight: 600; color: var(--fg-2); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  figure { margin: 0 0 var(--space-5); }
+  footer p { margin: 0; font-size: var(--text-sm); color: var(--fg-2); }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top">Spec Library</a>
+    <nav aria-label="Primary">
+      <a href="#specs">Specs</a>
+      <a href="#start">Start</a>
+      <a href="#usage">Usage</a>
+    </nav>
+  </div>
+</header>
+<main id="top" class="wrap">
+  <h1>Spec library</h1>
+  <p class="lead">Browse, review, and ship specs. Every spec keeps its history, owners, and open questions in one place, so a reviewer can decide without chasing context across <a href="#specs">several tools</a>.</p>
+
+  <section id="specs">
+    <h2>Recent specs</h2>
+    <p class="count">12 items</p>
+    <ul class="list">
+      <li class="row"><a href="#s1">Login flow</a><span class="meta">Updated 2 days ago</span></li>
+      <li class="row"><a href="#s2">Projects hub</a><span class="meta">Updated 3 days ago</span></li>
+      <li class="row"><a href="#s3">Specs table</a><span class="meta">Updated 3 days ago</span></li>
+      <li class="row"><a href="#s4">Inbox triage</a><span class="meta">Updated 4 days ago</span></li>
+      <li class="row"><a href="#s5">Git sync</a><span class="meta">Updated 5 days ago</span></li>
+      <li class="row"><a href="#s6">Usage report</a><span class="meta">Updated 6 days ago</span></li>
+      <li class="row"><a href="#s7">Epic planner</a><span class="meta">Updated 1 week ago</span></li>
+      <li class="row"><a href="#s8">Review queue</a><span class="meta">Updated 1 week ago</span></li>
+      <li class="row"><a href="#s9">Export tools</a><span class="meta">Updated 2 weeks ago</span></li>
+      <li class="row"><a href="#s10">Audit log</a><span class="meta">Updated 2 weeks ago</span></li>
+      <li class="row"><a href="#s11">Team roles</a><span class="meta">Updated 3 weeks ago</span></li>
+      <li class="row"><a href="#s12">Billing view</a><span class="meta">Updated 1 month ago</span></li>
+    </ul>
+  </section>
+
+  <section id="start">
+    <h2>Starting points</h2>
+    <div class="grid">
+      <article class="card"><h3>Draft a spec</h3><p>Start from a template with owners set.</p><a class="btn" href="#draft">Open draft</a></article>
+      <article class="card"><h3>Review a spec</h3><p>See open questions before you decide.</p><a class="btn" href="#review">Open review</a></article>
+      <article class="card"><h3>Ship a spec</h3><p>Hand off with history attached.</p><a class="btn" href="#ship">Open handoff</a></article>
+    </div>
+  </section>
+
+  <section id="intake">
+    <h2>New spec</h2>
+    <form action="#" onsubmit="return false">
+      <div class="field"><label for="title">Title</label><input id="title" type="text" autocomplete="off"></div>
+      <div class="field"><label for="owner">Owner</label><select id="owner"><option>Design</option><option>Engineering</option></select></div>
+      <label class="check"><input type="checkbox"> Notify reviewers</label>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn" type="submit">Create spec</button>
+        <button class="icon" type="button" aria-label="Open help"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="10" cy="10" r="8"/><path d="M10 14v-1m0-2c0-1.5 2-1.5 2-3a2 2 0 0 0-4 0"/></svg></button>
+      </div>
+    </form>
+  </section>
+
+  <section id="usage">
+    <h2>Usage by team</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th scope="col">Team</th><th scope="col" class="num">Specs</th><th scope="col" class="num">Reviews</th></tr></thead>
+        <tbody>
+          <tr><td>Design</td><td class="num">1,204</td><td class="num">3,480</td></tr>
+          <tr><td>Engineering</td><td class="num">862</td><td class="num">2,115</td></tr>
+          <tr><td>Product</td><td class="num">431</td><td class="num">980</td></tr>
+          <tr><td>Support</td><td class="num">97</td><td class="num">1,052</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <figure>
+      <img alt="Diagram of the review flow from draft to handoff" width="320" height="160"
+           src="data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='160' viewBox='0 0 320 160'%3E%3Crect width='320' height='160' fill='%23e5ecff'/%3E%3Crect x='24' y='56' width='80' height='48' rx='8' fill='%230b5fff'/%3E%3Crect x='120' y='56' width='80' height='48' rx='8' fill='%230b5fff'/%3E%3Crect x='216' y='56' width='80' height='48' rx='8' fill='%230b5fff'/%3E%3C/svg%3E">
+    </figure>
+  </section>
+</main>
+<footer class="wrap"><p>Spec Library keeps specs reviewable.</p></footer>
+
+<div data-state-switcher style="position:fixed;right:16px;bottom:16px;padding:13px;font-size:11px;background:#222;color:#555;border-radius:3px;z-index:99;box-shadow:0 1px 2px #000">
+  <span>state</span>
+  <button type="button" style="width:20px;height:20px;padding:0;outline:none"><svg width="9" height="9"><path d="M0 0L9 9" stroke="#444"/></svg></button>
+  <div onclick="void 0" style="cursor:pointer;margin-left:5px">toggle</div>
+</div>
+</body>
+</html>

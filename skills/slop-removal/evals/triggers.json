@@ -1,0 +1,77 @@
+{
+  "skill_name": "slop-removal",
+  "cases": [
+    {
+      "id": "slop-removal-pos-eyebrows-subtitles",
+      "query": "This settings page reads like AI wrote it: a tiny uppercase label over every heading and a subtitle under each one that repeats it. Clean it up.",
+      "should_trigger": true
+    },
+    {
+      "id": "slop-removal-pos-dashboard-effects",
+      "query": "Remove the slop from our dashboard: a gradient headline, glowing cards, and badges on everything.",
+      "should_trigger": true
+    },
+    {
+      "id": "slop-removal-pos-nested-stripes",
+      "query": "Every card on the projects screen sits inside another card and has a colored stripe down its left edge. Get rid of the template look without changing our design system.",
+      "should_trigger": true
+    },
+    {
+      "id": "slop-removal-pos-filler-copy",
+      "query": "The signed-in onboarding screens were generated and are full of filler: 'unlock', 'seamless', emoji bullets, and a Get started button on every card. Strip it out.",
+      "should_trigger": true
+    },
+    {
+      "id": "slop-removal-pos-sweep",
+      "query": "Run an AI-tell sweep on the billing page and remove what you find, with before and after evidence.",
+      "should_trigger": true
+    },
+    {
+      "id": "slop-removal-pos-generic-states",
+      "query": "Claude built this inbox and every empty state says 'Nothing here yet!' while each card ends in 'Learn more'. Find the generated copy and fix it.",
+      "should_trigger": true
+    },
+    {
+      "id": "slop-removal-neg-spacing-wrap",
+      "query": "The gutters differ between the settings and billing pages, and the Save button wraps at 390. Fix the spacing and the wrap.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "interface-craft"
+    },
+    {
+      "id": "slop-removal-neg-baseline",
+      "query": "Headings use different sizes on every page and the button corners look pinched inside cards. Bring the screen to a clean baseline.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "interface-craft"
+    },
+    {
+      "id": "slop-removal-neg-write-copy",
+      "query": "Write the headings, field hints, and empty-state copy for the new invite screen before we build it.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "content-hierarchy"
+    },
+    {
+      "id": "slop-removal-neg-hand-rolled",
+      "query": "Agents keep hand-rolling buttons and cards. Rebuild the settings screen from our shadcn components and report what was reused.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "component-compose"
+    },
+    {
+      "id": "slop-removal-neg-token-drift",
+      "query": "Hardcoded hex colors and one-off shadow values are multiplying across the app. Map them to tokens and add a check that keeps them out.",
+      "should_trigger": false,
+      "near_miss": true,
+      "expected_skill": "design-system"
+    },
+    {
+      "id": "slop-removal-neg-options",
+      "query": "Show me three options for the usage card behind a picker so I can choose one.",
+      "should_trigger": false,
+      "near_miss": false,
+      "expected_skill": "ui-variants"
+    }
+  ]
+}
